@@ -4,7 +4,9 @@ import openGraph from './openGraph'
 
 const details = {
     email: 'kierandansey80@gmail.com',
-
+    linkedin: 'https://linkedin.com/in/kdansey80',
+    github: 'https://github.com/kdan80',
+    codepen: 'https://codepen.io/kdan80',
     skills: [
         'HTML',
         'CSS/SASS',
@@ -35,6 +37,24 @@ const details = {
     //         icon: Codepen,
     //     },
     // ],
-}
+} as const
 
-export { details, siteMetadata, openGraph }
+const siteConfig = {
+    themeColor: '#20212C',
+    navLinks: [
+        {
+            name: 'About',
+            url: '/#about',
+        },
+        {
+            name: 'Projects',
+            url: '/#projects',
+        },
+        {
+            name: 'Contact',
+            url: '/#contact',
+        },
+    ],
+} as const
+
+export { details, siteMetadata, siteConfig, openGraph }
