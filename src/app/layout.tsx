@@ -1,13 +1,14 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import config from '../../config'
+import { siteMetadata, openGraph, details } from '../../config'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-    title: config.site_metadata.title,
-    description: config.site_metadata.description,
+    title: siteMetadata.title,
+    description: siteMetadata.description,
+    themeColor: '#20212C',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
