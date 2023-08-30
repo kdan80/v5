@@ -14,7 +14,7 @@ type socialLink = {
 interface Config {
     email: string
     skills: string[]
-    siteData: {
+    site_metadata: {
         title: string
         description: string
         siteUrl: string
@@ -43,7 +43,7 @@ const config: Config = {
         'SVG/Inkscape',
     ],
 
-    siteData: {
+    site_metadata: {
         title: 'Kieran Dansey',
         description: 'Kieran Dansey freelance web developer',
         siteUrl: 'https://kierandansey.co.uk',
