@@ -1,3 +1,4 @@
+import { title } from 'process'
 import React from 'react'
 //import { Github, LinkedIn, Codepen } from 'components/icons'
 
@@ -14,14 +15,15 @@ type socialLink = {
 interface Config {
     email: string
     skills: string[]
-    site_metadata: {
+    siteMetadata: {
         title: string
         description: string
+        keywords: string[]
         siteUrl: string
         image: string
     }
     //socialLinks: socialLink[]
-    nav_links: NavLink[]
+    navLinks: NavLink[]
 }
 
 const config: Config = {
@@ -43,10 +45,16 @@ const config: Config = {
         'SVG/Inkscape',
     ],
 
-    site_metadata: {
+    siteMetadata: {
         title: 'Kieran Dansey',
+        keywords: ['Kieran Dansey', 'Kieran', 'Dansey', 'Freelance Web Developer', 'Web Developer'],
         description: 'Kieran Dansey freelance web developer',
         siteUrl: 'https://kierandansey.co.uk',
+        openGraph: {
+            title: title,
+            description: description,
+            url: siteUrl,
+        },
         image: '/images/og.webp',
     },
 
@@ -65,7 +73,7 @@ const config: Config = {
     //     },
     // ],
 
-    nav_links: [
+    navLinks: [
         {
             name: 'About',
             url: '/#about',
