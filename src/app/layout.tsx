@@ -1,14 +1,25 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { siteMetadata, openGraph, details } from '../../config'
+import { siteMetadata, openGraph, details, siteConfig } from '../../config'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+    creator: details.name,
     title: siteMetadata.title,
     description: siteMetadata.description,
-    themeColor: '#20212C',
+    keywords: [...siteMetadata.keywords],
+    themeColor: siteConfig.themeColor,
+    openGraph: {
+        title: openGraph.title,
+        description: openGraph.description,
+        url: openGraph.url,
+        siteName: openGraph.siteName,
+        images: [...openGraph.images],
+        locale: openGraph.locale,
+        type: openGraph.type,
+    },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

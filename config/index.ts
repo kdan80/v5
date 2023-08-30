@@ -3,6 +3,7 @@ import openGraph from './openGraph'
 //import { Github, LinkedIn, Codepen } from 'components/icons'
 
 const details = {
+    name: 'Kieran Dansey',
     email: 'kierandansey80@gmail.com',
     linkedin: 'https://linkedin.com/in/kdansey80',
     github: 'https://github.com/kdan80',
