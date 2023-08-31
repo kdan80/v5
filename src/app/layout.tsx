@@ -30,7 +30,12 @@ interface Props {
 const RootLayout = ({ children }: Props) => {
     return (
         <html lang='en'>
-            <body className={inter.className}>{children}</body>
+            <body className={inter.className}>
+                <div className='bg-red-800' />
+                {children}
+            </body>
         </html>
     )
 }
+
+export default RootLayout
