@@ -14,6 +14,25 @@ body {
     background-image: url('/images/background.webp');
     background-size: cover;
     background-attachment: fixed;
+    overflow: overlay;
+    overflow-x: hidden;
+    background-color: #1e1f23;
+}
+
+/* Hide scroll bars on Chrome */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scroll bars on Edge and FF */
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Hide scroll bars on FF */
+html {
+    scrollbar-width: none;
 }
 
 /* 
