@@ -6,6 +6,7 @@ import { siteMetadata, openGraph, details, siteConfig } from '../../config'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+    metadataBase: new URL(siteMetadata.metadataBaseUrl),
     creator: details.name,
     title: siteMetadata.title,
     description: siteMetadata.description,
