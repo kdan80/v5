@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { siteMetadata, openGraph, details, siteConfig } from '../../config'
+import { siteMetadata, openGraph, details, siteConfig } from '@/config'
 
 const inter = Inter({ subsets: ['latin'] })
 
