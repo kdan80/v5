@@ -30,8 +30,9 @@ interface Props {
 const RootLayout = ({ children }: Props) => {
     return (
         <html lang='en'>
-            <body className={inter.className}>
-                <div className='bg-red-800' />
+            <body className={`${inter.className}`}>
+                {/* Background image for the entire site */}
+                <div className='fixed top-0 left-0 -z-10 bg-img w-screen h-screen bg-cover' />
                 {children}
             </body>
         </html>
