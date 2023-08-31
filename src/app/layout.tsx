@@ -31,7 +31,7 @@ const RootLayout = ({ children }: Props) => {
     return (
         <html lang='en'>
             <body className={`${inter.className}`}>
-                <main>{children}</main>
+                <main className='text-light-200'>{children}</main>
             </body>
         </html>
     )
