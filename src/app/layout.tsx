@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { siteMetadata, openGraph, details, siteConfig } from '../../config'
+import BackgroundImage from '@/components/BackgroundImage'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -31,12 +32,7 @@ const RootLayout = ({ children }: Props) => {
     return (
         <html lang='en'>
             <body className={`${inter.className}`}>
-                {/* Background image for the entire site */}
-                <div
-                    id='backgroundImage'
-                    className='fixed top-0 left-0 -z-10 bg-img w-screen h-screen bg-cover'
-                />
-                {children}
+                <main>{children}</main>
             </body>
         </html>
     )
