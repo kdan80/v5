@@ -2,7 +2,6 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { siteMetadata, openGraph, details, siteConfig } from '../../config'
-import BackgroundImage from '@/components/BackgroundImage'
 
 const inter = Inter({ subsets: ['latin'] })
 
