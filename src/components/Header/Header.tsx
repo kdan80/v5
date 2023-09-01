@@ -2,6 +2,7 @@ import React from 'react'
 import NavLink from './NavLinks'
 import { siteConfig } from '@/config'
 import BigButton from '../BigButton'
+import Hamburger from '../Icons/HamburgerIcon/Hamburger'
 
 const Header = () => {
     return (
@@ -25,6 +26,8 @@ const Header = () => {
                 </nav>
                 <BigButton className='px-4 py-2'>Resume</BigButton>
             </div>
+
+            <Hamburger />
         </header>
     )
 }
