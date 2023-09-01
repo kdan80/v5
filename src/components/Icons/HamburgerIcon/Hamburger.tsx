@@ -1,14 +1,15 @@
 'use client'
 
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import Bar from './Bar'
 
 interface Props {
     isOpen: boolean
+    setIsOpen: Dispatch<SetStateAction<boolean>>
 }
 
-const Hamburger = () => {
-    const [isOpen, setIsOpen] = React.useState(false)
+const Hamburger = ({ isOpen, setIsOpen }: Props) => {
+    //const [isOpen, setIsOpen] = React.useState(false)
 
     return (
         <button

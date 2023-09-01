@@ -2,11 +2,11 @@ import React from 'react'
 import NavLink from './NavLinks'
 import { siteConfig } from '@/config'
 import BigButton from '../BigButton'
-import Hamburger from '../Icons/HamburgerIcon/Hamburger'
+import DropDownContainer from './DropDownContainer'
 
 const Header = () => {
     return (
-        <header className='fixed top-0 w-full h-[100px] px-12 flex justify-between items-center'>
+        <header className='w-full h-[100px] px-12 flex justify-between items-center'>
             <a
                 href='#landing'
                 className='text-white text-sm hover:text-green font-sans'
@@ -26,8 +26,7 @@ const Header = () => {
                 </nav>
                 <BigButton className='px-4 py-2'>Resume</BigButton>
             </div>
-
-            <Hamburger />
+            {/* <DropDownContainer></DropDownContainer> */}
         </header>
     )
 }

@@ -2,7 +2,6 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { siteMetadata, openGraph, details, siteConfig } from '@/config'
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -30,9 +29,7 @@ interface Props {
 const RootLayout = ({ children }: Props) => {
     return (
         <html lang='en'>
-            <body className={`${inter.className}`}>
-                <main className='text-light-200'>{children}</main>
-            </body>
+            <body className={`${inter.className}`}>{children}</body>
         </html>
     )
 }

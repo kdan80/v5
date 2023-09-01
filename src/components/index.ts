@@ -1,3 +1,4 @@
 import Header from './Header/Header'
+import App from './App'
 
-export { Header }
+export { App, Header }
