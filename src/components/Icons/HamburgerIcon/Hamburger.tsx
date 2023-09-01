@@ -1,16 +1,34 @@
+'use client'
+
 import React from 'react'
 import Bar from './Bar'
 
+interface Props {
+    isOpen: boolean
+}
+
 const Hamburger = () => {
+    const [isOpen, setIsOpen] = React.useState(false)
+
     return (
         <button
             type='button'
-            className=''
+            className='md:hidden'
+            onClick={() => setIsOpen(prev => !prev)}
         >
             <div className='relative w-[28px] h-[28px]'>
-                <Bar position='top' />
-                <Bar position='middle' />
-                <Bar position='bottom' />
+                <Bar
+                    position='top'
+                    className={isOpen ? `w-[15px] translate-x-[5px] translate-y-0 rotate-45` : ''}
+                />
+                <Bar
+                    position='middle'
+                    className={isOpen ? `w-[15px] translate-x-1/2 scale-x-0 opacity-0` : ''}
+                />
+                <Bar
+                    position='bottom'
+                    className={isOpen ? `w-[15px] translate-x-[5px] translate-y-0 -rotate-45` : ''}
+                />
             </div>
         </button>
     )
