@@ -7,9 +7,9 @@ const Header = () => {
         <header className='fixed top-0 w-full p-[5vw] md:px-12 md:py-10 flex justify-between items-center'>
             <a
                 href='#landing'
-                className='text-white text-lg hover:text-green font-sans'
+                className='text-white text-sm hover:text-green font-sans'
             >
-                <span className='text-green '>&lt;/&gt;&nbsp;</span>
+                <span className='text-green '>&lt;/&gt;&nbsp;&nbsp;</span>
                 <span className='transition-colors ease-in-out duration-500'>kieran dansey</span>
             </a>
             <nav className='hidden md:flex gap-8'>
