@@ -1,22 +1,11 @@
 'use client'
 
+import useScrolledToTop from '@/useScrolledToTop'
+
 import React from 'react'
 
 const HeaderBackdrop = () => {
-    const [scrolledToTop, setScrolledToTop] = React.useState(true)
-
-    React.useEffect(() => {
-        const handleScroll = () => {
-            if (window.innerWidth > 768) return setScrolledToTop(window.scrollY < 100)
-            return setScrolledToTop(window.scrollY === 0)
-        }
-
-        window.addEventListener('scroll', handleScroll)
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll)
-        }
-    }, [])
+    const scrolledToTop = useScrolledToTop()
 
     return (
         <div
