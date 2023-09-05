@@ -3,10 +3,12 @@ import NavLink from './NavLinks'
 import { siteConfig } from '@/config'
 import BigButton from '../BigButton'
 import DropDownContainer from './DropDownContainer'
+import HeaderBackdrop from './HeaderBackdrop'
 
 const Header = () => {
     return (
-        <header className='fixed w-full h-[100px] px-12 flex justify-between items-center backdrop-blur-sm'>
+        <header className='fixed w-full h-[100px] px-12 flex justify-between items-center '>
+            <HeaderBackdrop />
             <a
                 href='#landing'
                 className='text-white text-sm hover:text-green font-sans'
