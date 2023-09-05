@@ -18,6 +18,7 @@ const Header = () => {
                 <nav className='flex gap-8 mr-8'>
                     {siteConfig.navLinks.map((link, index) => (
                         <NavLink
+                            key={index}
                             index={index + 1}
                             url={link.url}
                             name={link.name}
