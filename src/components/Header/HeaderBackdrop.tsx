@@ -20,8 +20,8 @@ const HeaderBackdrop = () => {
 
     return (
         <div
-            className={`fixed top-0 left-0 -z-10 w-full h-[100px] transition ease-in-out duration-500 ${
-                scrolledToTop ? '' : 'backdrop-blur-sm bg-[#00000011]'
+            className={`fixed top-0 left-0 -z-10 w-full h-[100px] transition ease-in-out duration-300 ${
+                scrolledToTop ? '' : 'backdrop-blur-sm bg-[#15171888]'
             }`}
         ></div>
     )
