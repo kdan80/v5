@@ -1,3 +1,4 @@
 import Header from './Header/Header'
+import DropdownMenu from './DropdownMenu/DropdownMenu'
 
-export { Header }
+export { DropdownMenu, Header }
