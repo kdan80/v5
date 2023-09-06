@@ -7,12 +7,12 @@ import HeaderBackdrop from './HeaderBackdrop.client'
 
 const Header = () => {
     return (
-        <header className='fixed w-full h-[100px] px-12 flex justify-between items-center'>
+        <header className='fixed w-full h-[80px] md:h-[100px] px-6 md:px-12 flex justify-between items-center'>
             {/* Client component */}
             <HeaderBackdrop />
             <a
                 href='#landing'
-                className='text-white text-sm hover:text-green font-sans'
+                className='text-white text-lg md:text-sm hover:text-green font-sans'
             >
                 <span className='text-green '>&lt;/&gt;&nbsp;&nbsp;</span>
                 <span className='transition-colors ease-in-out duration-500'>kieran dansey</span>
