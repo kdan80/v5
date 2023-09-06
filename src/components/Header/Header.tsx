@@ -1,13 +1,14 @@
 import React from 'react'
 import NavLink from './NavLinks'
 import { siteConfig } from '@/config'
-import BigButton from '../BigButton'
-import DropDownContainer from './DropDownContainer'
-import HeaderBackdrop from './HeaderBackdrop'
+import DownloadCV from './DownloadCV'
+import { DropdownMenu } from '..'
+import HeaderBackdrop from './HeaderBackdrop.client'
 
 const Header = () => {
     return (
         <header className='fixed w-full h-[100px] px-12 flex justify-between items-center '>
+            {/* Client component */}
             <HeaderBackdrop />
             <a
                 href='#landing'
@@ -27,9 +28,10 @@ const Header = () => {
                         />
                     ))}
                 </nav>
-                <BigButton className='px-4 py-2'>Resume</BigButton>
+                <DownloadCV />
             </div>
-            {/* <DropDownContainer></DropDownContainer> */}
+            {/* Client component */}
+            <DropdownMenu />
         </header>
     )
 }
