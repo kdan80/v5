@@ -5,7 +5,6 @@ const useScrolledToTop = (): boolean => {
 
     React.useEffect(() => {
         const handleScroll = () => {
-            console.log(window.scrollY)
             if (window.innerWidth > 768) return setScrolledToTop(window.scrollY < 100)
             return setScrolledToTop(window.scrollY === 0)
         }
