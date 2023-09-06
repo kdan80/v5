@@ -7,7 +7,7 @@ import HeaderBackdrop from './HeaderBackdrop.client'
 
 const Header = () => {
     return (
-        <header className='fixed top-0 left-0 w-full h-[100px] px-12 flex justify-between items-center'>
+        <header className='fixed w-full h-[100px] px-12 flex justify-between items-center'>
             {/* Client component */}
             <HeaderBackdrop />
             <a
