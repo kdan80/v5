@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import Hamburger from '../Icons/HamburgerIcon/Hamburger'
+import Hamburger from '../Icons/Hamburger'
 import Dropdown from './DropdownNav'
 
 const DropdownMenu = () => {
