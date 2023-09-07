@@ -16,10 +16,16 @@ const DropdownNav = ({ isOpen, setIsOpen }: Props) => {
         if (!ref.current) return
         const nav = ref.current
 
-        nav.addEventListener('transitionend', () => setTranstionFinished(prev => !prev))
+        const handleTransition = () => {
+            const position = nav.getBoundingClientRect()
+            if (position.top === 0) return setTranstionFinished(true)
+            setTranstionFinished(false)
+        }
+
+        nav.addEventListener('transitionend', handleTransition)
         console.log(nav)
         return () => {
-            nav?.removeEventListener('transitionend', () => setTranstionFinished(prev => !prev))
+            nav?.removeEventListener('transitionend', handleTransition)
         }
     }, [])
 
