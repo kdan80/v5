@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Tail wind drop-shadow does not work in Header.tsx use this instead */
+.shadow-x {
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+}
+
 body {
     background-image: url('/images/background.webp');
     background-size: cover;
