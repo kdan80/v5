@@ -16,10 +16,10 @@ const DropdownNav = ({ isOpen, setIsOpen }: Props) => {
         if (!ref.current) return
         const nav = ref.current
 
-        nav.addEventListener('transitionend', () => setTranstionFinished(true))
+        nav.addEventListener('transitionend', () => setTranstionFinished(prev => !prev))
         console.log(nav)
         return () => {
-            nav?.removeEventListener('transitionend', () => setTranstionFinished(true))
+            nav?.removeEventListener('transitionend', () => setTranstionFinished(prev => !prev))
         }
     }, [])
 
@@ -32,7 +32,7 @@ const DropdownNav = ({ isOpen, setIsOpen }: Props) => {
                 ${isOpen ? 'translate-y-0' : '-translate-y-full'}`
             }
         >
-            {isOpen && (
+            {isOpen && transitionFinished && (
                 <nav className='text-light-300 md:text-light-200 font-mono flex flex-col gap-16'>
                     {siteConfig.navLinks.map((link, index) => (
                         <a
@@ -41,10 +41,9 @@ const DropdownNav = ({ isOpen, setIsOpen }: Props) => {
                             onClick={() => setIsOpen(false)}
                             // prettier-ignore
                             className={`
-                                
-                                ${link.id === 1 && transitionFinished && 'animate-bounceInFromLeft1'} 
-                                ${link.id === 2 && transitionFinished && 'animate-bounceInFromLeft2'} 
-                                ${link.id === 3 && transitionFinished && 'animate-bounceInFromLeft3'}
+                                ${link.id === 1 && 'animate-bounceInFromLeft1'} 
+                                ${link.id === 2 && 'animate-bounceInFromLeft2'} 
+                                ${link.id === 3 && 'animate-bounceInFromLeft3'}
                             `}
                         >
                             <span className='text-green align-baseline'>0{index + 1}.&nbsp;</span>
