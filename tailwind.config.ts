@@ -86,6 +86,18 @@ module.exports = {
                 project: 'repeat(12, 1fr)',
             },
             keyframes: {
+                bounceInFromLeft: {
+                    '0%': {
+                        opacity: 0,
+                        transform: 'translateX(-100%)',
+                    },
+                    '60%': {
+                        opacity: 1,
+                        transform: 'translateX(30px)',
+                    },
+                    '80%': { transform: 'translateX(-10px)' },
+                    '100%': { transform: 'translateX(0)' },
+                },
                 slideInFromLeft: {
                     '0%': {
                         transform: 'translateX(-100%)',
@@ -106,6 +118,9 @@ module.exports = {
                 },
             },
             animation: {
+                bounceInFromLeft1: 'bounceInFromLeft 500ms ease-in-out forwards',
+                bounceInFromLeft2: 'bounceInFromLeft 650ms ease-in-out forwards',
+                bounceInFromLeft3: 'bounceInFromLeft 800ms ease-in-out forwards',
                 slideInFromLeft: 'slideInFromLeft 300ms ease-in-out',
                 slideDown: 'slideDown 250ms ease-in-out',
             },
@@ -116,3 +131,5 @@ module.exports = {
     },
     plugins: [],
 }
+
+// animation: 3s ease-in 1s 2 reverse both paused slidein;

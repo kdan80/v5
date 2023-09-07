@@ -44,14 +44,17 @@ const siteConfig = {
     themeColor: '#20212C',
     navLinks: [
         {
+            id: 1,
             name: 'About',
             url: '/#about',
         },
         {
+            id: 2,
             name: 'Projects',
             url: '/#projects',
         },
         {
+            id: 3,
             name: 'Contact',
             url: '/#contact',
         },

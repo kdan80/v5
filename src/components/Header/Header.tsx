@@ -3,7 +3,7 @@ import NavLink from './NavLinks'
 import { siteConfig } from '@/config'
 import DownloadCV from './DownloadCV'
 import { DropdownMenu } from '..'
-import HeaderBackdrop from './HeaderBackdrop.client'
+import HeaderBackdrop from './HeaderBackdrop'
 
 const Header = () => {
     return (
