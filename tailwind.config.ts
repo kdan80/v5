@@ -93,9 +93,9 @@ module.exports = {
                     },
                     '60%': {
                         opacity: 1,
-                        transform: 'translateX(30px)',
+                        transform: 'translateX(3px)',
                     },
-                    '80%': { transform: 'translateX(-10px)' },
+                    '80%': { transform: 'translateX(-1px)' },
                     '100%': { transform: 'translateX(0)' },
                 },
                 slideInFromLeft: {
@@ -118,9 +118,12 @@ module.exports = {
                 },
             },
             animation: {
-                bounceInFromLeft1: 'bounceInFromLeft 500ms ease-in-out forwards',
-                bounceInFromLeft2: 'bounceInFromLeft 650ms ease-in-out forwards',
-                bounceInFromLeft3: 'bounceInFromLeft 800ms ease-in-out forwards',
+                bounceInFromLeft1:
+                    'bounceInFromLeft 400ms cubic-bezier(0.3, 0.16, 0.54, 1.22) forwards',
+                bounceInFromLeft2:
+                    'bounceInFromLeft 550ms cubic-bezier(0.3, 0.16, 0.54, 1.22) forwards',
+                bounceInFromLeft3:
+                    'bounceInFromLeft 700ms cubic-bezier(0.3, 0.16, 0.54, 1.22) forwards',
                 slideInFromLeft: 'slideInFromLeft 300ms ease-in-out',
                 slideDown: 'slideDown 250ms ease-in-out',
             },
@@ -131,5 +134,3 @@ module.exports = {
     },
     plugins: [],
 }
-
-// animation: 3s ease-in 1s 2 reverse both paused slidein;
