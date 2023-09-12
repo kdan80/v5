@@ -1,10 +1,11 @@
 import React from 'react'
+import { HTMLTag, BorderColor } from './widget.types'
 
 interface Props {
     className?: string
     children?: React.ReactNode
-    border?: 'red' | 'green' | 'blue' | 'yellow' | 'white' | 'black' | 'purple'
-    as?: any
+    borderColor?: BorderColor
+    as?: HTMLTag
 }
 
 export interface IBorderColors {
@@ -27,20 +28,19 @@ const borderColors: IBorderColors = {
     purple: 'border-[#ff00ff]',
 } as const
 
-const RootContainer = ({ className, children, border, as }: Props) => {
+const RootContainer = ({ className, children, borderColor, as }: Props) => {
     const Component = as || 'div'
 
-    return (
-        <Component
-            // prettier-ignore
-            className={`
-                ${className}
-                ${border ? `border-2 ${borderColors[border as keyof IBorderColors]}` : null
-            }`}
-        >
-            {children}
-        </Component>
-    )
+    //prettier-ignore
+    // This is required to prevent class='undefined' polluting the final html
+    const classes =
+        (className ? className : '') +
+        (borderColor ? `border-2 ${borderColors[borderColor as keyof IBorderColors]}` : '')
+
+    // This is required to prevent class='' polluting the final html
+    if (!classes) return <Component>{children}</Component>
+
+    return <Component className={classes}>{children}</Component>
 }
 
 export default RootContainer
