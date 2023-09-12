@@ -8,6 +8,7 @@ interface Props {
     as?: HTMLTag
 }
 
+//prettier-ignore
 export interface IBorderColors {
     red: 'border-[#ff0000]'
     green: 'border-[#00ff00]'
@@ -18,6 +19,7 @@ export interface IBorderColors {
     purple: 'border-[#ff00ff]'
 }
 
+//prettier-ignore
 const borderColors: IBorderColors = {
     red: 'border-[#ff0000]',
     green: 'border-[#00ff00]',
@@ -35,7 +37,7 @@ const BaseWidget = ({ className, children, borderColor, as }: Props) => {
     // This is required to prevent class='undefined' polluting the final html
     const classes =
         (className ? className : '') +
-        (borderColor ? `border-2 ${borderColors[borderColor as keyof IBorderColors]}` : '')
+        (borderColor ? ' ' + `border-2 ${borderColors[borderColor as keyof IBorderColors]}` : '')
 
     // This is required to prevent class='' polluting the final html
     if (!classes) return <Component>{children}</Component>
