@@ -1,7 +1,7 @@
 import React from 'react'
 import Section from './Section'
 import Link from 'next/link'
-import BigButton from '../BigButton'
+import { BigButton } from '@/sharedComponents'
 
 const Landing = () => {
     //const [pageLoadAnimationsComplete, setPageLoadAnimationsComplete] = React.useState(false)

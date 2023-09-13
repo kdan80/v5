@@ -1,5 +1,4 @@
 import React, { SetStateAction } from 'react'
-import NavLink from '../Header/NavLinks'
 import { siteConfig } from '@/config'
 
 interface Props {

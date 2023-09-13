@@ -1,7 +1,7 @@
 import React from 'react'
-import DownloadCV from './DownloadCV'
-import { DropdownMenu } from '..'
-import HeaderBackdrop from './HeaderBackdrop'
+import DownloadCV from './components/DownloadCV'
+import { DropdownClientContext } from '..'
+import HeaderBackdrop from './components/HeaderBackdrop'
 import HeaderContainer from './components/HeaderContainer'
 import HomeLink from './components/HomeLink'
 import NavLinks from './components/NavLinks'
@@ -21,7 +21,7 @@ const Header = () => {
             </FlexContainer>
 
             {/* Client component */}
-            <DropdownMenu />
+            <DropdownClientContext />
         </HeaderContainer>
     )
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import Hamburger from '../Icons/Hamburger'
+import { Hamburger } from '@/icons'
 
 const DropDownContainer = () => {
     const [isOpen, setIsOpen] = React.useState(false)

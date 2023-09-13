@@ -1,15 +1,16 @@
 'use client'
 
 import React from 'react'
-import Hamburger from '../Icons/Hamburger'
-import Dropdown from './DropdownNav'
+import { Hamburger } from '@/icons'
+import DropdownNav from './components/DropdownNav'
+import FlexContainer from './FlexContainer'
 
-const DropdownMenu = () => {
+const DropdownClientContext = () => {
     const [isOpen, setIsOpen] = React.useState(false)
 
     return (
-        <div className='md:hidden flex items-center'>
-            <Dropdown
+        <FlexContainer>
+            <DropdownNav
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
             />
@@ -17,8 +18,8 @@ const DropdownMenu = () => {
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
             />
-        </div>
+        </FlexContainer>
     )
 }
 
-export default DropdownMenu
+export default DropdownClientContext
