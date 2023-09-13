@@ -9,9 +9,9 @@ const Section = ({ children, id }: Props) => {
     return (
         <section
             id={id}
-            className='flex justify-center items-center min-h-screen px-[5vw] w-screen border'
+            className='flex justify-center items-center min-h-screen px-6 md:px-12 w-screen border'
         >
-            {children}
+            <div className='flex flex-col justify-between gap-6'>{children}</div>
         </section>
     )
 }

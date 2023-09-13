@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header } from '@/components'
-import Landing from '@/components/sections/Landing'
+import { Landing } from '@/sections'
 
 const Home = () => {
     return (

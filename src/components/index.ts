@@ -1,2 +1,2 @@
-export { default as Header } from './Header/Header'
-export { default as DropdownClientContext } from './DropdownClientContext/DropdownClientContext'
+export { default as Header } from './header/Header'
+export { default as DropdownClientContext } from './dropdownClientContext/DropdownClientContext'
