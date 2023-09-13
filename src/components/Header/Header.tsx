@@ -4,10 +4,12 @@ import { siteConfig } from '@/config'
 import DownloadCV from './DownloadCV'
 import { DropdownMenu } from '..'
 import HeaderBackdrop from './HeaderBackdrop'
+//import { Container as HeaderContainer } from '@/Widgets'
+import HeaderContainer from './components/HeaderContainer'
 
 const Header = () => {
     return (
-        <header className='fixed w-full h-[80px] md:h-[100px] px-6 md:px-12 flex justify-between items-center'>
+        <HeaderContainer>
             {/* Client component */}
             <HeaderBackdrop />
             <a
@@ -32,7 +34,7 @@ const Header = () => {
             </div>
             {/* Client component */}
             <DropdownMenu />
-        </header>
+        </HeaderContainer>
     )
 }
 
