@@ -21,7 +21,7 @@ const Landing = () => {
             </p>
 
             <div className='mt-8'>
-                <BigButton>
+                <BigButton className='px-6 py-4'>
                     <a href='#projects'>View My Projects</a>
                 </BigButton>
             </div>
