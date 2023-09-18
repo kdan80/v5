@@ -1,14 +1,26 @@
+'use client'
+
 import React from 'react'
 import { Section } from '@/sharedComponents'
 import Link from 'next/link'
 import { BigButton } from '@/sharedComponents'
 
 const Landing = () => {
-    //const [pageLoadAnimationsComplete, setPageLoadAnimationsComplete] = React.useState(false)
+    const [pageLoaded, setPageLoaded] = React.useState(false)
+
+    React.useEffect(() => {
+        setPageLoaded(true)
+    }, [])
 
     return (
         <Section id='landing'>
-            <h1 className='text-green font-mono text-landingH1 mb-2'>Hi, my name is</h1>
+            <h1
+                className={`text-green font-mono text-landingH1 mb-2 transition ease-in-out duration-300 opacity-0 translate-y-[20px] ${
+                    pageLoaded ? 'translate-y-[0] opacity-100' : ''
+                }`}
+            >
+                Hi, my name is
+            </h1>
             <h2 className='font-semibold leading-[.9] text-landingH2 text-light-100'>
                 Kieran Dansey.
             </h2>
