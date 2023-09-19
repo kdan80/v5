@@ -58,7 +58,7 @@ const Landing = () => {
             </h3>
             <p
                 ref={el => pushToRefsArray(el)}
-                className='opacity-0 md:max-w-[60%] text-light-900 leading-[1.5rem] text-lg'
+                className='opacity-0 md:max-w-[60%] text-light-900 text-lg'
             >
                 I am a freelance web developer, and occasional designer, with a passion for building
                 exceptional digital experiences.
