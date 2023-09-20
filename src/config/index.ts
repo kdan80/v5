@@ -16,11 +16,10 @@ const details = {
         'React/Next.js',
         'Typescript',
         'Node.js/Express',
-        'Python/Django',
         'php/Laravel',
         'Linux/Bash',
         'MongoDB',
-        'Git',
+        'Git/Github',
         'SVG/Inkscape',
     ],
 

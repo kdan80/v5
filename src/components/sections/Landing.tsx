@@ -40,7 +40,7 @@ const Landing = () => {
             className={section}
             id='landing'
         >
-            <div className={sectionContent}>
+            <div className={`${sectionContent}`}>
                 <h1
                     ref={el => pushToRefsArray(el)}
                     className='opacity-0 text-green font-mono text-landingH1 mb-2'
