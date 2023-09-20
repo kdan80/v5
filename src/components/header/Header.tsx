@@ -5,11 +5,13 @@ import { bigButton } from '@/styles'
 import { DropdownClientContext } from '..'
 import { siteConfig } from '@/config'
 import useScrolledToTop from '../../useScrolledToTop'
+import { AnySrvRecord } from 'dns'
 
 const Header = () => {
     const scrolledToTop = useScrolledToTop()
 
     const refs = React.useRef<HTMLElement[]>([])
+    const homeLinkRef = React.useRef<HTMLAnchorElement | null>(null)
 
     const pushToRefsArray = (el: HTMLElement | null) => {
         el && refs.current.push(el)
@@ -17,11 +19,14 @@ const Header = () => {
 
     React.useEffect(() => {
         const fadeDownElements = refs.current
+        const homeLink = homeLinkRef.current
 
-        console.log('fu: ', fadeDownElements)
+        if (!fadeDownElements || !homeLink) return
+
+        let homeLinkAnimationDelay: number = 1100
 
         fadeDownElements.forEach((element, index) => {
-            element.animate(
+            const animation = element.animate(
                 [
                     {
                         transform: 'translateY(-100%)',
@@ -39,7 +44,31 @@ const Header = () => {
                     delay: 500 + index * 75,
                 }
             )
+
+            // prettier-ignore
+            if (index === 2 && animation.effect) {
+                homeLinkAnimationDelay = 
+                    animation.effect.getComputedTiming().duration as number + 
+                    animation.effect.getComputedTiming().delay! as number
+            }
         })
+
+        homeLink.animate(
+            [
+                {
+                    opacity: 0,
+                },
+                {
+                    opacity: 1,
+                },
+            ],
+            {
+                duration: 250,
+                fill: 'forwards',
+                easing: 'ease-in-out',
+                delay: homeLinkAnimationDelay + 200,
+            }
+        )
     }, [])
 
     return (
@@ -49,8 +78,9 @@ const Header = () => {
             }`}
         >
             <a
+                ref={homeLinkRef}
                 href='#landing'
-                className='text-white text-lg md:text-sm hover:text-green font-sans'
+                className='opacity-0 text-white text-lg md:text-sm hover:text-green font-sans'
             >
                 <span className='text-green '>&lt;/&gt;&nbsp;&nbsp;</span>
                 <span className='transition-colors ease-in-out duration-500'>kieran dansey</span>
