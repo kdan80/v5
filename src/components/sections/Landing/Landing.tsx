@@ -44,15 +44,17 @@ const Landing = () => {
             >
                 Hi, my name is
             </h1>
+
+            {/* Left margin of minus 3px is required to account for glyph padding in large fonts */}
             <h2
                 ref={el => pushToRefsArray(el)}
-                className='opacity-0 font-semibold leading-[.9] text-landingH2 text-light-100'
+                className='opacity-0 font-semibold -ml-[3px] leading-[.9] text-landingH2 text-light-100'
             >
                 Kieran Dansey.
             </h2>
             <h3
                 ref={el => pushToRefsArray(el)}
-                className='opacity-0 font-semibold leading-[.9] text-landingH2 text-light-900'
+                className='opacity-0 font-semibold -ml-[3px] leading-[.9] text-landingH2 text-light-900'
             >
                 I build things for the web.
             </h3>
