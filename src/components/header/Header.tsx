@@ -74,7 +74,7 @@ const Header = () => {
 
     return (
         <header
-            className={`fixed w-full h-[80px] md:h-[100px] px-6 md:px-12 flex items-center justify-between transition ease-in-out duration-300 ${
+            className={`fixed w-full h-[80px] md:h-[100px] px-6 md:px-12 flex items-center justify-between transition ease-in-out duration-300 z-50 ${
                 scrolledToTop ? '' : 'backdrop-blur-sm shadow-x md:bg-[#15171888]'
             }`}
         >
