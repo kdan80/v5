@@ -5,7 +5,6 @@ import { bigButton } from '@/styles'
 import { DropdownClientContext } from '..'
 import { siteConfig } from '@/config'
 import useScrolledToTop from '../../useScrolledToTop'
-import { AnySrvRecord } from 'dns'
 
 const Header = () => {
     const scrolledToTop = useScrolledToTop()
@@ -41,7 +40,7 @@ const Header = () => {
                     duration: 250,
                     fill: 'forwards',
                     easing: 'cubic-bezier(0.42, 0, 0.58, 1)',
-                    delay: 500 + index * 75,
+                    delay: 500 + index * 100,
                 }
             )
 
