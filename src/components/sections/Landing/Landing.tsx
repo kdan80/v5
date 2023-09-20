@@ -1,8 +1,7 @@
 'use client'
 
 import React from 'react'
-import { bigButton } from '@/styles'
-import { Section } from '@/sharedComponents'
+import { bigButton, section, sectionContent } from '@/styles'
 
 const Landing = () => {
     const refs = React.useRef<HTMLElement[]>([])
@@ -11,7 +10,7 @@ const Landing = () => {
         el && refs.current.push(el)
     }
 
-    React.useLayoutEffect(() => {
+    React.useEffect(() => {
         const fadeUpElements = refs.current
 
         fadeUpElements.forEach((element, index) => {
@@ -37,47 +36,48 @@ const Landing = () => {
     }, [])
 
     return (
-        <Section id='landing'>
-            <h1
-                ref={el => pushToRefsArray(el)}
-                className='opacity-0 text-green font-mono text-landingH1 mb-2'
-            >
-                Hi, my name is
-            </h1>
+        <section
+            className={section}
+            id='landing'
+        >
+            <div className={sectionContent}>
+                <h1
+                    ref={el => pushToRefsArray(el)}
+                    className='opacity-0 text-green font-mono text-landingH1 mb-2'
+                >
+                    Hi, my name is
+                </h1>
 
-            {/* Left margin of minus 3px is required to account for glyph padding in large fonts */}
-            <h2
-                ref={el => pushToRefsArray(el)}
-                className='opacity-0 font-semibold -ml-[3px] leading-[.9] text-landingH2 text-light-100'
-            >
-                Kieran Dansey.
-            </h2>
-            <h3
-                ref={el => pushToRefsArray(el)}
-                className='opacity-0 font-semibold -ml-[3px] leading-[.9] text-landingH2 text-light-900'
-            >
-                I build things for the web.
-            </h3>
-            <p
-                ref={el => pushToRefsArray(el)}
-                className='opacity-0 md:max-w-[60%] text-light-900 text-lg'
-            >
-                I am a freelance web developer, and occasional designer, with a passion for building
-                exceptional digital experiences.
-            </p>
+                {/* Left margin of minus 3px is required to account for glyph padding in large fonts */}
+                <h2
+                    ref={el => pushToRefsArray(el)}
+                    className='opacity-0 font-semibold -ml-[3px] leading-[.9] text-landingH2 text-light-100'
+                >
+                    Kieran Dansey.
+                </h2>
+                <h3
+                    ref={el => pushToRefsArray(el)}
+                    className='opacity-0 font-semibold -ml-[3px] leading-[.9] text-landingH2 text-light-900'
+                >
+                    I build things for the web.
+                </h3>
+                <p
+                    ref={el => pushToRefsArray(el)}
+                    className='opacity-0 md:max-w-[60%] text-light-900 text-lg'
+                >
+                    I am a freelance web developer, and occasional designer, with a passion for
+                    building exceptional digital experiences.
+                </p>
 
-            <div
-                ref={el => pushToRefsArray(el)}
-                className='opacity-0  mt-8'
-            >
                 <a
-                    className={`${bigButton} px-6 py-4`}
+                    ref={el => pushToRefsArray(el)}
+                    className={`px-6 py-4 opacity-0 mt-8 ${bigButton}`}
                     href='#projects'
                 >
                     View My Projects
                 </a>
             </div>
-        </Section>
+        </section>
     )
 }
 
