@@ -1,8 +1,8 @@
 'use client'
 
 import React from 'react'
+import { bigButton } from '@/styles'
 import { Section } from '@/sharedComponents'
-import { BigButton } from '@/sharedComponents'
 
 const Landing = () => {
     const refs = React.useRef<HTMLElement[]>([])
@@ -70,9 +70,12 @@ const Landing = () => {
                 ref={el => pushToRefsArray(el)}
                 className='opacity-0  mt-8'
             >
-                <BigButton className='px-6 py-4'>
-                    <a href='#projects'>View My Projects</a>
-                </BigButton>
+                <a
+                    className={`${bigButton} px-6 py-4`}
+                    href='#projects'
+                >
+                    View My Projects
+                </a>
             </div>
         </Section>
     )
