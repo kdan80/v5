@@ -47,9 +47,10 @@ const Header = () => {
 
             // prettier-ignore
             if (index === 2 && animation.effect) {
+                const { duration, delay } = animation.effect.getComputedTiming()
                 homeLinkAnimationDelay = 
-                    animation.effect.getComputedTiming().duration as number + 
-                    animation.effect.getComputedTiming().delay! as number
+                    duration as number + 
+                    delay! as number
             }
         })
 
