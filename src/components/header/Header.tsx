@@ -12,82 +12,77 @@ interface Props {
 }
 
 const Header = ({ scrolledToTop }: Props) => {
-    //const scrolledToTop = useScrolledToTop()
     const scrollDirection = useScrollDirection()
 
     const fadeDownrefs = React.useRef<HTMLElement[]>([])
     const homeLinkRef = React.useRef<HTMLAnchorElement | null>(null)
-    const headerRef = React.useRef<HTMLHeadElement | null>(null)
 
     const pushToRefsArray = (el: HTMLElement | null) => {
         el && fadeDownrefs.current.push(el)
     }
 
     React.useEffect(() => {
-        //console.log('scroll direction: ', scrollDirection)
-        //console.log('scrolled to top: ', scrolledToTop)
-
         const fadeDownElements = fadeDownrefs.current
         const homeLink = homeLinkRef.current
-        const header = headerRef.current
 
-        if (!fadeDownElements || !homeLink || !header) return
+        if (!fadeDownElements || !homeLink) return
 
         let homeLinkAnimationDelay: number = 1100
 
-        // fadeDownElements.forEach((element, index) => {
-        //     const animation = element.animate(
-        //         [
-        //             {
-        //                 transform: 'translateY(-100%)',
-        //                 opacity: 0,
-        //             },
-        //             {
-        //                 transform: 'translateY(0)',
-        //                 opacity: 1,
-        //             },
-        //         ],
-        //         {
-        //             duration: 250,
-        //             fill: 'forwards',
-        //             easing: 'cubic-bezier(0.42, 0, 0.58, 1)',
-        //             delay: 500 + index * 100,
-        //         }
-        //     )
+        fadeDownElements.forEach((element, index) => {
+            const animation = element.animate(
+                [
+                    {
+                        transform: 'translateY(-100%)',
+                        opacity: 0,
+                    },
+                    {
+                        transform: 'translateY(0)',
+                        opacity: 1,
+                    },
+                ],
+                {
+                    duration: 250,
+                    fill: 'forwards',
+                    easing: 'cubic-bezier(0.42, 0, 0.58, 1)',
+                    delay: 500 + index * 100,
+                }
+            )
 
-        //     // prettier-ignore
-        //     if (index === 2 && animation.effect) {
-        //         const { duration, delay } = animation.effect.getComputedTiming()
-        //         homeLinkAnimationDelay =
-        //             duration as number +
-        //             delay! as number
-        //     }
-        // })
+            // prettier-ignore
+            if (index === 2 && animation.effect) {
+                const { duration, delay } = animation.effect.getComputedTiming()
+                homeLinkAnimationDelay =
+                    duration as number +
+                    delay! as number
+            }
+        })
 
-        // homeLink.animate(
-        //     [
-        //         {
-        //             opacity: 0,
-        //         },
-        //         {
-        //             opacity: 1,
-        //         },
-        //     ],
-        //     {
-        //         duration: 250,
-        //         fill: 'forwards',
-        //         easing: 'ease-in-out',
-        //         delay: homeLinkAnimationDelay + 200,
-        //     }
-        // )
-    }, [scrolledToTop, scrollDirection])
+        homeLink.animate(
+            [
+                {
+                    opacity: 0,
+                },
+                {
+                    opacity: 1,
+                },
+            ],
+            {
+                duration: 250,
+                fill: 'forwards',
+                easing: 'ease-in-out',
+                delay: homeLinkAnimationDelay + 200,
+            }
+        )
+    }, [])
 
     return (
         <header
-            ref={headerRef}
-            className={`border fixed w-full h-[80px] md:h-[100px] px-6 md:px-12 flex items-center justify-between transition duration-300 ease-in-out z-50 ${
-                scrolledToTop ? '' : 'backdrop-blur-md shadow-x bg-[#151718dd]'
-            }`}
+            // prettier-ignore
+            className={`fixed w-full h-[80px] md:h-[100px] px-6 md:px-12 flex items-center justify-between transition duration-300 ease-in-out z-50 
+                ${!scrolledToTop && 'backdrop-blur-md shadow-x bg-[#151718dd]'} 
+                ${scrollDirection === 'down' ? '-translate-y-full' : 'translate-y-0'}
+            `}
         >
             <a
                 ref={homeLinkRef}
