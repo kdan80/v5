@@ -1,57 +1,37 @@
 import React from 'react'
 
-const THRESHOLD = 500
+// This hook determines when an element has scrolled to the top of the viewport and is 100% visible
+// It uses intersection observer to monitor the element
+// The element is passed by ref when initializing the hook
+// OFFSET_TOP an additional margin where scrolledToTop will be considered true
+// ie scrolling 100px from the top will still be considered scrolledToTop = true
 
-const useScrolledToTop = (ref: any): boolean => {
+const OFFSET_TOP = '100px'
+
+const useScrolledToTop = (ref: React.RefObject<HTMLSelectElement | null>) => {
     const [scrolledToTop, setScrolledToTop] = React.useState(true)
 
     React.useEffect(() => {
-        const obs = ref.current
-        if (!obs) return
+        if (!ref.current) return
+        const element = ref.current
 
-        const cb = (entries: any) => {
+        const cb = (entries: IntersectionObserverEntry[]) => {
             const [entry] = entries
 
             setScrolledToTop(entry.isIntersecting)
         }
 
         const observer = new IntersectionObserver(cb, {
-            rootMargin: '100px 0px 0px 0px',
+            rootMargin: `${OFFSET_TOP} 0px 0px 0px`,
             threshold: 1,
         })
 
-        observer.observe(obs)
+        observer.observe(element)
 
-        return () => observer.unobserve(obs)
+        return () => observer.unobserve(element)
     }, [ref])
 
     return scrolledToTop
 }
 
 export default useScrolledToTop
-
-// import React from 'react'
-
-// const THRESHOLD = 10
-
-// const useScrolledToTop = (): boolean => {
-//     const [scrolledToTop, setScrolledToTop] = React.useState(true)
-//     const lastScrollY = React.useRef(0)
-
-//     React.useEffect(() => {
-//         const handleScroll = () => {
-//             if (window.innerWidth > 768) return setScrolledToTop(window.scrollY < 100)
-//             return setScrolledToTop(window.scrollY === 0)
-//         }
-
-//         window.addEventListener('scroll', handleScroll)
-
-//         return () => {
-//             window.removeEventListener('scroll', handleScroll)
-//         }
-//     }, [])
-
-//     return scrolledToTop
-// }
-
-// export default useScrolledToTop
