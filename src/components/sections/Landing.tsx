@@ -3,7 +3,7 @@
 import React from 'react'
 import { bigButton, section, sectionContent } from '@/styles'
 
-const Landing = () => {
+const Landing = React.forwardRef(({}, ref) => {
     const refs = React.useRef<HTMLElement[]>([])
 
     const pushToRefsArray = (el: HTMLElement | null) => {
@@ -37,7 +37,8 @@ const Landing = () => {
 
     return (
         <section
-            className={section}
+            ref={ref}
+            className={`border-2 border-red-800 ${section}`}
             id='landing'
         >
             <div className={`${sectionContent}`}>
@@ -79,6 +80,6 @@ const Landing = () => {
             </div>
         </section>
     )
-}
+})
 
 export default Landing

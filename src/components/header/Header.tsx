@@ -7,8 +7,12 @@ import { siteConfig } from '@/config'
 import useScrolledToTop from '../../useScrolledToTop'
 import useScrollDirection from '../../useScrollDirection'
 
-const Header = () => {
-    const scrolledToTop = useScrolledToTop()
+interface Props {
+    scrolledToTop: boolean
+}
+
+const Header = ({ scrolledToTop }: Props) => {
+    //const scrolledToTop = useScrolledToTop()
     const scrollDirection = useScrollDirection()
 
     const fadeDownrefs = React.useRef<HTMLElement[]>([])
@@ -20,7 +24,8 @@ const Header = () => {
     }
 
     React.useEffect(() => {
-        console.log('scroll direction: ', scrollDirection)
+        //console.log('scroll direction: ', scrollDirection)
+        //console.log('scrolled to top: ', scrolledToTop)
 
         const fadeDownElements = fadeDownrefs.current
         const homeLink = homeLinkRef.current
