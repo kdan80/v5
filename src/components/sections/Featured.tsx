@@ -4,6 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Github, External } from '@/icons'
 import NumberedHeading from '../NumberedHeading'
+import fs from 'fs'
+import matter from 'gray-matter'
 
 type Project = {
     frontmatter: {
@@ -23,7 +25,30 @@ interface Props {
     projects: Project[]
 }
 
-const Featured = ({ projects }: Props) => {
+const readMarkdownFiles = async () => {
+    const files = fs.readdirSync('content/featured')
+
+    const projects = files.map(file => {
+        const readFile = fs.readFileSync(`content/featured/${file}/index.md`, 'utf-8')
+        const { data: frontmatter, content } = matter(readFile)
+        const { date } = frontmatter
+        return {
+            frontmatter,
+            content,
+            date: parseInt(date),
+        }
+    })
+
+    projects.sort((a: any, b: any) => a.date - b.date)
+
+    return projects
+}
+
+const Featured = async () => {
+    const projects = await readMarkdownFiles()
+
+    console.log('xx: ', projects)
+
     return (
         <section
             className={`${section}`}
