@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Github, External } from '@/icons'
 import NumberedHeading from '../NumberedHeading'
-import fs from 'fs'
+//import fs from 'fs'
 import matter from 'gray-matter'
 
 type Project = {
