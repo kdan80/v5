@@ -1,5 +1,5 @@
 import React from 'react'
-import { icon, section, sectionContent } from '@/styles'
+import { section, sectionContent } from '@/styles'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Github, External } from '@/icons'
@@ -32,7 +32,7 @@ const Featured = ({ projects }: Props) => {
                                 >
                                     <div
                                         // prettier-ignore
-                                        className={`relative h-full md:border-2 md:border-medium-800 row-span-full col-span-full rounded md:hover:border-hero transition ease-in-out duration-500 overflow-hidden 
+                                        className={`relative h-full md:border-2 md:border-medium-800 row-span-full col-span-full rounded md:hover:border-green transition ease-in-out duration-500 overflow-hidden 
                                         ${reverseLayout ? 'md:col-start-5 lg:col-start-6' : 'md:col-end-9 lg:col-end-8'}`}
                                     >
                                         <Link
@@ -63,13 +63,13 @@ const Featured = ({ projects }: Props) => {
                                     >
                                         <h3
                                             // prettier-ignore
-                                            className={`text-hero text-sm font-mono`}
+                                            className={`text-green text-sm font-mono`}
                                         >
                                             Featured Project
                                         </h3>
                                         <h2
                                             // prettier-ignore
-                                            className={`pointer-events-auto w-fit text-2xl font-semibold mt-1 text-light-200 hover:text-hero transition ease-in-out duration-500`}
+                                            className={`pointer-events-auto w-fit text-2xl font-semibold mt-1 text-light-200 hover:text-green transition ease-in-out duration-500`}
                                         >
                                             <Link href={external}>{title}</Link>
                                         </h2>

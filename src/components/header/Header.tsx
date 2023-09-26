@@ -4,7 +4,6 @@ import React from 'react'
 import { bigButton } from '@/styles'
 import { DropdownClientContext } from '..'
 import { siteConfig } from '@/config'
-import useScrolledToTop from '../../useScrolledToTop'
 import useScrollDirection from '../../useScrollDirection'
 
 interface Props {

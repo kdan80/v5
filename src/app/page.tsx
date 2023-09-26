@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header } from '@/components'
+import { ClientContext, Header } from '@/components'
 import { About, Featured, Landing } from '@/sections'
 import fs from 'fs'
 import matter from 'gray-matter'
@@ -27,14 +27,13 @@ const getProjects = async () => {
 const Home = async () => {
     const projects = await getProjects()
 
-    console.log('xx: ', projects)
-
     return (
-        <main className='text-light-200 min-h-screen max-w-screen overflow-x-hidden'>
+        <ClientContext>
+            <About />
             <Featured projects={projects} />
             <div className='h-screen w-full flex items-center justify-center'>Hello 2</div>
             <div className='h-screen w-full flex items-center justify-center'>Hello 3</div>
-        </main>
+        </ClientContext>
     )
 }
 

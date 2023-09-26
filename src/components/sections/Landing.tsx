@@ -1,15 +1,27 @@
 'use client'
 
 import React from 'react'
+import useScrolledToTop from '../../useScrolledToTop'
 import { bigButton, section, sectionContent } from '@/styles'
 
-const Landing = React.forwardRef(({}, ref: React.ForwardedRef<HTMLSelectElement | null>) => {
+interface Props {
+    setScrolledToTop: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const Landing = ({ setScrolledToTop }: Props) => {
+    const sectionRef = React.useRef<HTMLSelectElement | null>(null)
+    const scrolledToTop = useScrolledToTop(sectionRef)
     const refs = React.useRef<HTMLElement[]>([])
 
     const pushToRefsArray = (el: HTMLElement | null) => {
         el && refs.current.push(el)
     }
 
+    React.useEffect(() => {
+        setScrolledToTop(scrolledToTop)
+    }, [scrolledToTop])
+
+    // This effect controls the animations that run at mount time
     React.useEffect(() => {
         const fadeUpElements = refs.current
 
@@ -37,9 +49,9 @@ const Landing = React.forwardRef(({}, ref: React.ForwardedRef<HTMLSelectElement 
 
     return (
         <section
-            ref={ref}
             className={`${section}`}
             id='landing'
+            ref={sectionRef}
         >
             <div className={`${sectionContent}`}>
                 <h1
@@ -80,6 +92,6 @@ const Landing = React.forwardRef(({}, ref: React.ForwardedRef<HTMLSelectElement 
             </div>
         </section>
     )
-})
+}
 
 export default Landing
