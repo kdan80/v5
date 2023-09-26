@@ -1,6 +1,6 @@
 import React from 'react'
 import { ClientContext, Header } from '@/components'
-import { About, Featured, Landing } from '@/sections'
+import { About, Featured, Contact } from '@/sections'
 import fs from 'fs'
 import matter from 'gray-matter'
 import { Project } from '../types'
@@ -31,8 +31,7 @@ const Home = async () => {
         <ClientContext>
             <About />
             <Featured projects={projects} />
-            <div className='h-screen w-full flex items-center justify-center'>Hello 2</div>
-            <div className='h-screen w-full flex items-center justify-center'>Hello 3</div>
+            <Contact />
         </ClientContext>
     )
 }

@@ -16,6 +16,11 @@ const ClientContext = ({ children }: Props) => {
             <Header scrolledToTop={scrolledToTop} />
             <Landing setScrolledToTop={setScrolledToTop} />
             {children}
+            <footer className='flex justify-center items-center h-[6rem] -mt-[6rem]'>
+                <span className='text-medium-200 text-sm'>
+                    Designed &amp; Built by Kieran Dansey
+                </span>
+            </footer>
         </main>
     )
 }
