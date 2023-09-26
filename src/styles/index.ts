@@ -2,8 +2,8 @@ const bigButton = `text-green cursor-pointer border border-green rounded text-sm
 
 const section = `flex justify-center items-center min-h-screen px-6 md:px-12 w-screen`
 
-const sectionContent = `flex flex-col gap-6 font-sans`
+const sectionContent = `flex flex-col gap-6 font-sans md:max-w-[40rem] lg:max-w-[64rem]`
 
-const icon = `h-5 w-5 cursor-pointer fill-light-300 md:fill-light-200 hover:fill-hero hover:translate-y-[-3px] transition duration-500 ease-in-out`
+const icon = `h-5 w-5 cursor-pointer fill-light-300 md:fill-light-200 hover:fill-green hover:translate-y-[-2px] transition duration-350 ease-in-out`
 
 export { bigButton, icon, section, sectionContent }
