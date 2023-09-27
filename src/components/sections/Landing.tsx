@@ -76,7 +76,7 @@ const Landing = ({ setScrolledToTop }: Props) => {
                 </h3>
                 <p
                     ref={el => pushToRefsArray(el)}
-                    className='opacity-0 md:max-w-[60%] text-light-900 text-lg'
+                    className='opacity-0 md:max-w-[60%] text-light-900 md:text-lg'
                 >
                     I am a freelance web developer, and occasional designer, with a passion for
                     building exceptional digital experiences.
