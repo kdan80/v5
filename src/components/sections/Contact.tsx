@@ -12,15 +12,17 @@ const Contact = () => {
             className={`${section}`}
             id='contact'
         >
-            <div className={`${sectionContent} flex flex-col items-center gap-4`}>
-                <NumberedHeading
-                    index={3}
-                    overline={true}
-                >
-                    What&apos;s Next?
-                </NumberedHeading>
+            <div className={`${sectionContent} items-center gap-7 md:gap-6`}>
+                <div className='flex flex-col items-center gap-1'>
+                    <NumberedHeading
+                        index={3}
+                        overline={true}
+                    >
+                        What&apos;s Next?
+                    </NumberedHeading>
 
-                <h2 className='font-semibold text-contactH2'>Get In Touch</h2>
+                    <h2 className='font-semibold text-3xl md:text-4xl'>Get In Touch</h2>
+                </div>
 
                 <p className={`${paragraph} text-center md:max-w-[60%]`}>
                     Thank you for taking the time to visit my site. If you have a project you wish
@@ -29,7 +31,7 @@ const Contact = () => {
                 </p>
 
                 <Link
-                    className={`${bigButton} mt-10 px-6 py-4`}
+                    className={`${bigButton} mt-4 px-5 py-3`}
                     href={`mailto:${email}`}
                 >
                     Contact Me
