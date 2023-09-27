@@ -8,4 +8,9 @@ const icon = `h-5 w-5 cursor-pointer fill-light-300 md:fill-light-200 hover:fill
 
 const paragraph = `text-light-900`
 
-export { bigButton, icon, paragraph, section, sectionContent }
+// To calculate the top offset value use this formula;
+// ------------ (50% - (0.5 x height)) ------------
+// eg if the div is 2px high then the calculation is 50%-1px
+const hamburgerBar = `absolute top-[calc(50%-1px)] h-[2px] rounded-[2px] bg-green transition ease-in-out duration-[250ms]`
+
+export { bigButton, hamburgerBar, icon, paragraph, section, sectionContent }

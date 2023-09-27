@@ -1,8 +1,8 @@
 'use client'
 
 import React from 'react'
-import { bigButton } from '@/styles'
-import { DropdownClientContext } from '..'
+import { bigButton, hamburgerBar } from '@/styles'
+import DropdownNav from '../dropdownClientContext/components/DropdownNav'
 import { siteConfig } from '@/config'
 import useScrollDirection from '../../useScrollDirection'
 
@@ -13,67 +13,7 @@ interface Props {
 const Header = ({ scrolledToTop }: Props) => {
     const scrollDirection = useScrollDirection()
 
-    const fadeDownrefs = React.useRef<HTMLElement[]>([])
-    const homeLinkRef = React.useRef<HTMLAnchorElement | null>(null)
-
-    const pushToRefsArray = (el: HTMLElement | null) => {
-        el && fadeDownrefs.current.push(el)
-    }
-
-    React.useEffect(() => {
-        const fadeDownElements = fadeDownrefs.current
-        const homeLink = homeLinkRef.current
-
-        if (!fadeDownElements || !homeLink) return
-
-        let homeLinkAnimationDelay: number = 1100
-
-        fadeDownElements.forEach((element, index) => {
-            const animation = element.animate(
-                [
-                    {
-                        transform: 'translateY(-100%)',
-                        opacity: 0,
-                    },
-                    {
-                        transform: 'translateY(0)',
-                        opacity: 1,
-                    },
-                ],
-                {
-                    duration: 250,
-                    fill: 'forwards',
-                    easing: 'cubic-bezier(0.42, 0, 0.58, 1)',
-                    delay: 500 + index * 100,
-                }
-            )
-
-            // prettier-ignore
-            if (index === 2 && animation.effect) {
-                const { duration, delay } = animation.effect.getComputedTiming()
-                homeLinkAnimationDelay =
-                    duration as number +
-                    delay! as number
-            }
-        })
-
-        homeLink.animate(
-            [
-                {
-                    opacity: 0,
-                },
-                {
-                    opacity: 1,
-                },
-            ],
-            {
-                duration: 250,
-                fill: 'forwards',
-                easing: 'ease-in-out',
-                delay: homeLinkAnimationDelay + 200,
-            }
-        )
-    }, [])
+    const [isOpen, setIsOpen] = React.useState(false)
 
     return (
         <header
@@ -84,7 +24,7 @@ const Header = ({ scrolledToTop }: Props) => {
             `}
         >
             <a
-                ref={homeLinkRef}
+                id='homeLink'
                 href='#landing'
                 className='opacity-0 text-white text-lg md:text-sm hover:text-green font-sans'
             >
@@ -96,8 +36,7 @@ const Header = ({ scrolledToTop }: Props) => {
                 {siteConfig.navLinks.map(navLink => (
                     <a
                         key={navLink.id}
-                        ref={el => pushToRefsArray(el)}
-                        className='opacity-0 text-sm text-light-300 md:text-light-200 hover:text-green font-mono transition-colors ease-in-out duration-500'
+                        className='navLink opacity-0 text-sm text-light-300 md:text-light-200 hover:text-green font-mono transition-colors ease-in-out duration-500'
                         href={navLink.url}
                     >
                         <span className='text-green text-xs align-baseline'>
@@ -107,15 +46,40 @@ const Header = ({ scrolledToTop }: Props) => {
                     </a>
                 ))}
                 <a
-                    ref={el => pushToRefsArray(el)}
-                    className={`opacity-0 px-4 py-2 ${bigButton}`}
+                    id='downloadCV'
+                    className={`navLink opacity-0 px-4 py-2 ${bigButton}`}
                 >
                     Download CV
                 </a>
             </nav>
 
-            {/* Client component */}
-            <DropdownClientContext />
+            <button
+                id='hamburger'
+                type='button'
+                className='md:hidden opacity-0 w-[28px] h-[28px]'
+                onClick={() => setIsOpen(prev => !prev)}
+            >
+                <div className='relative w-full h-full'>
+                    <div
+                        className={`${hamburgerBar}  ${
+                            isOpen ? 'w-[15px] left-[4.5px] rotate-45' : 'w-full -translate-y-[9px]'
+                        }  `}
+                    />
+                    <div
+                        className={`${hamburgerBar} ${isOpen ? 'scale-x-0 opacity-0' : 'w-full'}`}
+                    />
+                    <div
+                        className={`${hamburgerBar}  ${
+                            isOpen ? 'w-[15px] left-[4.5px] -rotate-45' : 'w-full translate-y-[9px]'
+                        }  `}
+                    />
+                </div>
+            </button>
+
+            <DropdownNav
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+            />
         </header>
     )
 }

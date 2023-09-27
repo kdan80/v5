@@ -3,6 +3,7 @@
 import React from 'react'
 import { Landing } from './sections'
 import { Header } from '@/components'
+import useLandingAnimations from '../useLandingAnimations'
 
 interface Props {
     children: React.ReactNode
@@ -10,6 +11,11 @@ interface Props {
 
 const ClientContext = ({ children }: Props) => {
     const [scrolledToTop, setScrolledToTop] = React.useState(true)
+    const landingAnimations = useLandingAnimations()
+
+    React.useEffect(() => {
+        landingAnimations()
+    })
 
     return (
         <main className='text-light-200 min-h-screen max-w-screen overflow-x-hidden'>

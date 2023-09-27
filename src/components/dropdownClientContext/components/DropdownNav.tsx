@@ -7,7 +7,7 @@ interface Props {
 }
 
 const DropdownNav = ({ isOpen, setIsOpen }: Props) => {
-    const ref = React.useRef<HTMLElement>(null)
+    const ref = React.useRef<HTMLElement | null>(null)
     const [transitionFinished, setTranstionFinished] = React.useState(false)
 
     // This side effect keeps track of when the nav has full transitioned so that other elements can then be animated
@@ -64,28 +64,3 @@ const DropdownNav = ({ isOpen, setIsOpen }: Props) => {
 }
 
 export default DropdownNav
-
-// className={`${
-//     link.id === 1
-//         ? 'animate-bounceInFromLeft1'
-//         : index === 2
-//         ? 'animate-bounceInFromLeft2'
-//         : 'animate-bounceInFromLeft3'
-// }`}
-
-// <a
-//                             href={link.url}
-//                             onClick={() => setIsOpen(false)}
-//                             className={`${
-//                                 link.id === 1
-//                                     ? 'animate-bounceInFromLeft1'
-//                                     : index === 2
-//                                     ? 'animate-bounceInFromLeft2'
-//                                     : 'animate-bounceInFromLeft3'
-//                             }`}
-//                         >
-//                             <span className='text-green align-baseline'>0{index + 1}.&nbsp;</span>
-//                             <span className='text-xl hover:text-green transition-colors ease-in-out duration-500'>
-//                                 {link.name}
-//                             </span>
-//                         </a>
