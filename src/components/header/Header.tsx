@@ -25,7 +25,7 @@ const Header = ({ scrolledToTop }: Props) => {
     return (
         <header
             // prettier-ignore
-            className={`fixed w-full h-[80px] md:h-[100px] px-6 md:px-12 flex items-center justify-between transition duration-300 ease-in-out z-50 
+            className={`fixed w-full h-[80px] md:h-[100px] px-6 lg:px-12 flex items-center justify-between transition duration-300 ease-in-out z-50 
                 ${!scrolledToTop && 'backdrop-blur-md shadow-x bg-[#151718dd]'} 
                 ${scrollDirection === 'down' ? '-translate-y-full' : 'translate-y-0'}
             `}
