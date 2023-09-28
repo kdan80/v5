@@ -15,6 +15,13 @@ const Header = ({ scrolledToTop }: Props) => {
 
     const [isOpen, setIsOpen] = React.useState(false)
 
+    React.useEffect(() => {
+        // Disable page scroll when dropdown is open
+        isOpen
+            ? document.body.classList.add('overflow-hidden')
+            : document.body.classList.remove('overflow-hidden')
+    }, [isOpen])
+
     return (
         <header
             // prettier-ignore
@@ -26,7 +33,7 @@ const Header = ({ scrolledToTop }: Props) => {
             <a
                 id='homeLink'
                 href='#landing'
-                className='opacity-0 text-white text-lg md:text-sm hover:text-green font-sans'
+                className='opacity-0 text-white text-sm hover:text-green font-sans'
             >
                 <span className='text-green '>&lt;/&gt;&nbsp;&nbsp;</span>
                 <span className='transition-colors ease-in-out duration-500'>kieran dansey</span>
@@ -53,6 +60,11 @@ const Header = ({ scrolledToTop }: Props) => {
                 </a>
             </nav>
 
+            <DropdownNav
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+            />
+
             <button
                 id='hamburger'
                 type='button'
@@ -75,11 +87,6 @@ const Header = ({ scrolledToTop }: Props) => {
                     />
                 </div>
             </button>
-
-            <DropdownNav
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
-            />
         </header>
     )
 }

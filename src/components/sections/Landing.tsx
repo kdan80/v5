@@ -11,41 +11,10 @@ interface Props {
 const Landing = ({ setScrolledToTop }: Props) => {
     const sectionRef = React.useRef<HTMLSelectElement | null>(null)
     const scrolledToTop = useScrolledToTop(sectionRef)
-    const refs = React.useRef<HTMLElement[]>([])
-
-    const pushToRefsArray = (el: HTMLElement | null) => {
-        el && refs.current.push(el)
-    }
 
     React.useEffect(() => {
         setScrolledToTop(scrolledToTop)
     }, [scrolledToTop])
-
-    // This effect controls the animations that run at mount time
-    React.useEffect(() => {
-        const fadeUpElements = refs.current
-
-        // fadeUpElements.forEach((element, index) => {
-        //     element.animate(
-        //         [
-        //             {
-        //                 transform: 'translateY(20px)',
-        //                 opacity: 0,
-        //             },
-        //             {
-        //                 transform: 'translateY(0)',
-        //                 opacity: 1,
-        //             },
-        //         ],
-        //         {
-        //             duration: 250,
-        //             fill: 'forwards',
-        //             easing: 'cubic-bezier(0.42, 0, 0.58, 1)',
-        //             delay: index * 100,
-        //         }
-        //     )
-        // })
-    }, [])
 
     return (
         <section

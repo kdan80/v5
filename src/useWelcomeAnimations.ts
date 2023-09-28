@@ -87,7 +87,7 @@ const useWelcomeAnimations = () => {
         }
     }, [])
 
-    return () => welcomeAnimations()
+    return () => welcomeAnimations && welcomeAnimations()
 }
 
 export default useWelcomeAnimations
