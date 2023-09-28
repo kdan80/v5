@@ -3,7 +3,7 @@
 import React from 'react'
 import { Landing } from './sections'
 import { Header } from '@/components'
-import useLandingAnimations from '../useLandingAnimations'
+import useWelcomeAnimations from '../useWelcomeAnimations'
 
 interface Props {
     children: React.ReactNode
@@ -11,10 +11,10 @@ interface Props {
 
 const ClientContext = ({ children }: Props) => {
     const [scrolledToTop, setScrolledToTop] = React.useState(true)
-    const landingAnimations = useLandingAnimations()
+    const welcomeAnimations = useWelcomeAnimations()
 
     React.useEffect(() => {
-        landingAnimations()
+        welcomeAnimations()
     })
 
     return (
