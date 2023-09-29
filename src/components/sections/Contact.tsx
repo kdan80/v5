@@ -12,7 +12,7 @@ const Contact = () => {
             className={`${section}`}
             id='contact'
         >
-            <div className={`${sectionContent} items-center gap-7 md:gap-6`}>
+            <div className={`observer ${sectionContent} items-center gap-7 md:gap-6`}>
                 <div className='flex flex-col items-center gap-1'>
                     <NumberedHeading
                         index={3}

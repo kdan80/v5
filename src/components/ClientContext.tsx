@@ -15,7 +15,26 @@ const ClientContext = ({ children }: Props) => {
 
     React.useEffect(() => {
         welcomeAnimations()
-    })
+
+        const entries = document.querySelectorAll('.observer')
+
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // prettier-ignore
+                        (entry.target as HTMLElement).classList.add('show')
+                        observer.unobserve(entry.target)
+                    }
+                })
+            },
+            {
+                rootMargin: '0px 0px -100px 0px',
+            }
+        )
+
+        entries.forEach(entry => observer.observe(entry))
+    }, [])
 
     return (
         <main className='text-light-200 flex flex-col items-center min-h-screen max-w-screen overflow-x-hidden'>

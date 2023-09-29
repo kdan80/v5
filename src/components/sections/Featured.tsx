@@ -17,7 +17,12 @@ const Featured = ({ projects }: Props) => {
             id='projects'
         >
             <div className={`gap-8 md:gap-12 ${sectionContent}`}>
-                <NumberedHeading index={2}>Some Things I&apos;ve Built</NumberedHeading>
+                <NumberedHeading
+                    className='observer'
+                    index={2}
+                >
+                    Some Things I&apos;ve Built
+                </NumberedHeading>
                 <ul className='flex flex-col gap-8 md:gap-24'>
                     {projects &&
                         projects.map((project, index) => {
@@ -28,7 +33,7 @@ const Featured = ({ projects }: Props) => {
                             return (
                                 <li
                                     key={index}
-                                    className={`relative grid grid-cols-12 md:gap-[0.625rem] items-center`}
+                                    className={`observer relative grid grid-cols-12 md:gap-[0.625rem] items-center`}
                                 >
                                     <div
                                         // prettier-ignore

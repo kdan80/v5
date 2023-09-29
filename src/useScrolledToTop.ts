@@ -6,7 +6,7 @@ import React from 'react'
 // OFFSET_TOP an additional margin where scrolledToTop will be considered true
 // ie scrolling 100px from the top will still be considered scrolledToTop = true
 
-const OFFSET_TOP = '100px'
+const OFFSET_TOP = '0px'
 
 const useScrolledToTop = (ref: React.RefObject<HTMLSelectElement | null>) => {
     const [scrolledToTop, setScrolledToTop] = React.useState(true)

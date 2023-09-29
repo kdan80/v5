@@ -10,7 +10,7 @@ const About = () => {
             id='about'
             className={`${section}`}
         >
-            <div className={`lg:w-[50rem] xl:w-[55rem] ${sectionContent}`}>
+            <div className={`observer lg:w-[50rem] xl:w-[55rem] ${sectionContent}`}>
                 <NumberedHeading index={1}>About Me</NumberedHeading>
 
                 <p className={`${paragraph}`}>
