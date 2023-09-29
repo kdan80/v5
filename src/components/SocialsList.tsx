@@ -19,6 +19,7 @@ const SocialsList = ({ scrolledToTop }: Props) => {
                 {details.socialLinks.map(({ url, icon: Icon }, index) => (
                     <Link
                         key={index}
+                        className='socialLink opacity-0'
                         target='_blank'
                         rel='noreferrer'
                         href={url}

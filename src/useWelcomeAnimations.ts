@@ -6,6 +6,8 @@ import {
     navLinkOptions,
     homeLinkKeyFrames,
     homeLinkOptions,
+    socialLinkKeyFrames,
+    socialLinkOptions,
 } from './animations'
 
 const useWelcomeAnimations = () => {
@@ -16,9 +18,15 @@ const useWelcomeAnimations = () => {
         const hamburger = document.querySelector('#hamburger')
         const navLinks = Array.from(document.querySelectorAll('.navLink'))
         const downloadCV = document.querySelector('#downloadCV')
+        const socialLinks = document.querySelectorAll('.socialLink')
         const landingElements: Array<HTMLElement> = Array.from(
             document.querySelectorAll('.landing')
         )
+
+        const landingAnimationsDuration =
+            (landingOptions.duration as number) + ((landingElements.length as number) - 1) * 100
+
+        const navLinksAnimationDuration = navLinkOptions.duration + (navLinks.length - 1) * 100
 
         const landingAnimations = () => {
             landingElements.forEach((element, index) => {
@@ -29,9 +37,6 @@ const useWelcomeAnimations = () => {
                 })
             })
         }
-
-        const landingAnimationsDuration =
-            (landingOptions.duration as number) + ((landingElements.length as number) - 1) * 100
 
         // Desktop animations
         if (window.innerWidth >= 768) {
@@ -50,9 +55,6 @@ const useWelcomeAnimations = () => {
                     })
                 })
 
-                const navLinksAnimationDuration =
-                    navLinkOptions.duration + (navLinks.length - 1) * 100
-
                 // @ts-ignore
                 homeLink.animate(homeLinkKeyFrames, {
                     ...homeLinkOptions,
@@ -60,6 +62,18 @@ const useWelcomeAnimations = () => {
                         landingOptions.delay +
                         landingAnimationsDuration +
                         navLinksAnimationDuration,
+                })
+
+                socialLinks.forEach((link, index) => {
+                    // @ts-ignore
+                    link.animate(socialLinkKeyFrames, {
+                        ...socialLinkOptions,
+                        delay:
+                            landingOptions.delay +
+                            landingAnimationsDuration +
+                            navLinksAnimationDuration +
+                            index * socialLinkOptions.delay,
+                    })
                 })
             })
         }
@@ -83,6 +97,14 @@ const useWelcomeAnimations = () => {
             hamburger.animate(homeLinkKeyFrames, {
                 ...homeLinkOptions,
                 delay: landingAnimationsDuration,
+            })
+
+            socialLinks.forEach((link, index) => {
+                // @ts-ignore
+                link.animate(socialLinkKeyFrames, {
+                    ...socialLinkOptions,
+                    delay: landingAnimationsDuration + 300 + index * socialLinkOptions.delay,
+                })
             })
         }
     }, [])

@@ -48,6 +48,19 @@ const landingKeyFrames = [
     },
 ]
 
+const socialLinkKeyFrames = [
+    {
+        opacity: 0,
+    },
+    {
+        opacity: 1,
+    },
+]
+
+const socialLinkOptions = {
+    ...navLinkOptions,
+}
+
 const landingOptions = {
     duration: duration,
     fill: fill,
@@ -62,4 +75,6 @@ export {
     homeLinkOptions,
     landingKeyFrames,
     landingOptions,
+    socialLinkKeyFrames,
+    socialLinkOptions,
 }
