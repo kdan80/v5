@@ -23,7 +23,10 @@ const useScrolledToTop = (ref: React.RefObject<HTMLSelectElement | null>) => {
 
         const observer = new IntersectionObserver(cb, {
             rootMargin: `${OFFSET_TOP} 0px 0px 0px`,
-            threshold: 1,
+            // due to the way that chrome/safari calculate the viewport height we must use a threshold < 1
+            // Using a threshold of 1 means 100vh will never fully be in the viewport on chrome/safari
+            // and consequently scrolledToTop will always be false on those platforms (we could also use 95vh but that would mess with the ui)
+            threshold: 0.92,
         })
 
         observer.observe(element)
