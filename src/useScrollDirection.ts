@@ -7,7 +7,7 @@ import React from 'react'
 // It will only update if the users scrolls more than the THRESHOLD value in pixels
 
 type ScrollDirection = 'up' | 'down'
-const THRESHOLD = 200
+const THRESHOLD = 50
 
 const useScrollDirection = (): ScrollDirection => {
     const blocking = React.useRef(false)

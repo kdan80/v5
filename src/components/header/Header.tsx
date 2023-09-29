@@ -2,38 +2,32 @@
 
 import React from 'react'
 import { bigButton, hamburgerBar } from '@/styles'
-import DropdownNav from '../dropdownClientContext/components/DropdownNav'
 import { siteConfig } from '@/config'
 import useScrollDirection from '../../useScrollDirection'
 
 interface Props {
     scrolledToTop: boolean
+    isOpen: boolean
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const Header = ({ scrolledToTop }: Props) => {
+const Header = ({ scrolledToTop, isOpen, setIsOpen }: Props) => {
     const scrollDirection = useScrollDirection()
-
-    const [isOpen, setIsOpen] = React.useState(false)
-
-    React.useEffect(() => {
-        // Disable page scroll when dropdown is open
-        isOpen
-            ? document.body.classList.add('overflow-hidden')
-            : document.body.classList.remove('overflow-hidden')
-    }, [isOpen])
 
     return (
         <header
             // prettier-ignore
-            className={`fixed w-full h-[80px] md:h-[100px] px-6 lg:px-12 flex items-center justify-between transition duration-300 ease-in-out z-50 
-                ${!scrolledToTop && 'backdrop-blur-md shadow-x bg-[#151718dd]'} 
+            className={`z-50 fixed w-full h-[80px] md:h-[100px] px-6 lg:px-12 flex items-center justify-between transition duration-300 ease-in-out 
+                ${!isOpen && !scrolledToTop && 'backdrop-blur-md shadow-x bg-[#151718dd]'} 
                 ${scrollDirection === 'down' ? '-translate-y-full' : 'translate-y-0'}
             `}
         >
             <a
                 id='homeLink'
                 href='#landing'
-                className='opacity-0 text-white text-sm hover:text-green font-sans'
+                className={`opacity-0 text-white text-sm hover:text-green font-sans ${
+                    isOpen && 'invisible'
+                }`}
             >
                 <span className='text-green '>&lt;/&gt;&nbsp;&nbsp;</span>
                 <span className='transition-colors ease-in-out duration-500'>kieran dansey</span>
@@ -59,11 +53,6 @@ const Header = ({ scrolledToTop }: Props) => {
                     Download CV
                 </a>
             </nav>
-
-            <DropdownNav
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
-            />
 
             <button
                 id='hamburger'

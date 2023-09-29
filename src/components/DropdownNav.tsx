@@ -33,7 +33,7 @@ const DropdownNav = ({ isOpen, setIsOpen }: Props) => {
             ref={ref}
             // prettier-ignore
             className={
-                `flex md:hidden justify-center items-center absolute top-0 left-0 w-full h-screen bg-[#303234aa] backdrop-blur-md transition-all duration-300 ease-in-out
+                `z-40 flex md:hidden justify-center items-center fixed top-0 left-0 w-full h-screen bg-[#303234aa] backdrop-blur-md transition-all duration-300 ease-in-out
                 ${isOpen ? 'translate-y-0' : '-translate-y-full'}`
             }
         >

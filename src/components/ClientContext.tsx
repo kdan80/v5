@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Landing } from './sections'
-import { Header, SocialsList } from '@/components'
+import { DropdownNav, Header, SocialsList } from '@/components'
 import useWelcomeAnimations from '../useWelcomeAnimations'
 
 interface Props {
@@ -11,7 +11,15 @@ interface Props {
 
 const ClientContext = ({ children }: Props) => {
     const [scrolledToTop, setScrolledToTop] = React.useState(true)
+    const [isOpen, setIsOpen] = React.useState(false)
     const welcomeAnimations = useWelcomeAnimations()
+
+    React.useEffect(() => {
+        // Disable page scroll when dropdown is open
+        isOpen
+            ? document.body.classList.add('overflow-hidden')
+            : document.body.classList.remove('overflow-hidden')
+    }, [isOpen])
 
     React.useEffect(() => {
         welcomeAnimations()
@@ -38,7 +46,12 @@ const ClientContext = ({ children }: Props) => {
 
     return (
         <main className='text-light-200 flex flex-col items-center min-h-screen max-w-screen overflow-x-hidden'>
-            <Header scrolledToTop={scrolledToTop} />
+            <Header
+                scrolledToTop={scrolledToTop}
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+            />
+
             <Landing setScrolledToTop={setScrolledToTop} />
             {children}
             <footer className='flex justify-center items-center h-[6rem] -mt-[6rem]'>
@@ -47,6 +60,11 @@ const ClientContext = ({ children }: Props) => {
                 </span>
             </footer>
             <SocialsList scrolledToTop={scrolledToTop} />
+
+            <DropdownNav
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+            />
         </main>
     )
 }
