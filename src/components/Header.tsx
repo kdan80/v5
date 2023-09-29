@@ -3,7 +3,7 @@
 import React from 'react'
 import { bigButton, hamburgerBar } from '@/styles'
 import { siteConfig } from '@/config'
-import useScrollDirection from '../../useScrollDirection'
+import useScrollDirection from '../useScrollDirection'
 
 interface Props {
     scrolledToTop: boolean

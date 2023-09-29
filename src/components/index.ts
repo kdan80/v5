@@ -1,5 +1,5 @@
 export { default as ClientContext } from './ClientContext'
-export { default as Header } from './header/Header'
+export { default as Header } from './Header'
 export { default as DropdownNav } from './DropdownNav'
 export { default as NumberedHeading } from './NumberedHeading'
 export { default as SocialsList } from './SocialsList'

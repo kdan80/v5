@@ -20,7 +20,6 @@
         ],
         "paths": {
             "@/components": ["./src/components"],
-            "@/sharedComponents": ["./src/components/sharedComponents"],
             "@/icons": ["./src/components/icons"],
             "@/sections": ["./src/components/sections"],
             "@/config": ["./src/config"],
