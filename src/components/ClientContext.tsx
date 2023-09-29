@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Landing } from './sections'
-import { Header } from '@/components'
+import { Header, SocialsList } from '@/components'
 import useWelcomeAnimations from '../useWelcomeAnimations'
 
 interface Props {
@@ -18,7 +18,7 @@ const ClientContext = ({ children }: Props) => {
     })
 
     return (
-        <main className='text-light-200 min-h-screen max-w-screen overflow-x-hidden'>
+        <main className='text-light-200 flex flex-col items-center min-h-screen max-w-screen overflow-x-hidden'>
             <Header scrolledToTop={scrolledToTop} />
             <Landing setScrolledToTop={setScrolledToTop} />
             {children}
@@ -27,6 +27,7 @@ const ClientContext = ({ children }: Props) => {
                     Designed &amp; Built by Kieran Dansey
                 </span>
             </footer>
+            <SocialsList scrolledToTop={scrolledToTop} />
         </main>
     )
 }

@@ -1,6 +1,6 @@
 import siteMetadata from './siteMetadata'
 import openGraph from './openGraph'
-//import { Github, LinkedIn, Codepen } from 'components/icons'
+import { Github, LinkedIn, Codepen } from '@/icons'
 
 const details = {
     name: 'Kieran Dansey',
@@ -23,20 +23,20 @@ const details = {
         'SVG/Inkscape',
     ],
 
-    // socialLinks: [
-    //     {
-    //         url: 'https://github.com/kdan80',
-    //         icon: Github,
-    //     },
-    //     {
-    //         url: 'https://linkedin.com/in/kdansey80',
-    //         icon: LinkedIn,
-    //     },
-    //     {
-    //         url: 'https://codepen.io/kdan80',
-    //         icon: Codepen,
-    //     },
-    // ],
+    socialLinks: [
+        {
+            url: 'https://github.com/kdan80',
+            icon: Github,
+        },
+        {
+            url: 'https://linkedin.com/in/kdansey80',
+            icon: LinkedIn,
+        },
+        {
+            url: 'https://codepen.io/kdan80',
+            icon: Codepen,
+        },
+    ],
 } as const
 
 const siteConfig = {
