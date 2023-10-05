@@ -18,6 +18,10 @@
     transform: translateY(0);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-image: url('/images/background.webp');
     background-size: cover;
