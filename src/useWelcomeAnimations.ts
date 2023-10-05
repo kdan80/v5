@@ -10,11 +10,14 @@ import {
     socialLinkOptions,
 } from './animations'
 
-const useWelcomeAnimations = () => {
+const useWelcomeAnimations = (loading: boolean) => {
     let welcomeAnimations: () => void
 
     React.useEffect(() => {
+        if (loading) return
+
         const homeLink = document.querySelector('#homeLink')
+        if (!homeLink) return
         const hamburger = document.querySelector('#hamburger')
         const navLinks = Array.from(document.querySelectorAll('.navLink'))
         const downloadCV = document.querySelector('#downloadCV')
@@ -107,7 +110,7 @@ const useWelcomeAnimations = () => {
                 })
             })
         }
-    }, [])
+    }, [loading])
 
     return () => welcomeAnimations && welcomeAnimations()
 }
