@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 import { bigButton, hamburgerBar } from '@/styles'
 import { siteConfig } from '@/config'
 import useScrollDirection from '../useScrollDirection'
@@ -46,12 +47,15 @@ const Header = ({ scrolledToTop, isOpen, setIsOpen }: Props) => {
                         <span className='align-baseline'>{navLink.name}</span>
                     </a>
                 ))}
-                <a
+                <Link
                     id='downloadCV'
+                    rel='noopener noreferrer'
+                    target='_blank'
+                    href='/KieranDanseyCV.pdf'
                     className={`navLink opacity-0 px-4 py-2 ${bigButton}`}
                 >
                     Download CV
-                </a>
+                </Link>
             </nav>
 
             <button
