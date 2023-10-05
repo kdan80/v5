@@ -127,14 +127,6 @@ module.exports = {
                 slideInFromLeft: 'slideInFromLeft 300ms ease-in-out',
                 slideDown: 'slideDown 250ms ease-in-out',
             },
-            screens: {
-                xs: { min: '540px', max: '639px' },
-                sm: { min: '640px', max: '767px' },
-                md: { min: '768px', max: '1023px' },
-                lg: { min: '1024px', max: '1279px' },
-                xl: { min: '1280px', max: '1535px' },
-                '2xl': { min: '1536px' },
-            },
             debugScreens: {
                 style: {
                     backgroundColor: '#000000',
