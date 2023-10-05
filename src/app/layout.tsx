@@ -31,7 +31,7 @@ const RootLayout = ({ children }: Props) => {
     return (
         <html lang='en'>
             <body
-                className={`${inter.className} ${
+                className={`${inter.className} selection:bg-darkGreen selection:text-white ${
                     process.env.ENV === 'development' && 'debug-screens'
                 }`}
             >

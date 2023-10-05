@@ -14,7 +14,7 @@ module.exports = {
             colors: {
                 green: '#13d5bb',
                 heroHover: '#11aa951a',
-                dark_green: '#0d9086',
+                darkGreen: '#0d9086',
                 header: 'rgba(28,29,34, .95)',
                 light: {
                     50: '#fafbff',
