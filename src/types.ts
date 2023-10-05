@@ -3,7 +3,6 @@ export type Project = {
         date: string
         title: string
         cover: string
-        //coverMob: string
         blurData: string
         github: string
         external: string

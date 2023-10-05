@@ -1,5 +1,7 @@
 import React, { SetStateAction } from 'react'
+import { bigButton } from '@/styles'
 import { siteConfig } from '@/config'
+import Link from 'next/link'
 
 interface Props {
     isOpen: boolean
@@ -22,7 +24,6 @@ const DropdownNav = ({ isOpen, setIsOpen }: Props) => {
         }
 
         nav.addEventListener('transitionend', handleTransition)
-        console.log(nav)
         return () => {
             nav?.removeEventListener('transitionend', handleTransition)
         }
@@ -51,12 +52,24 @@ const DropdownNav = ({ isOpen, setIsOpen }: Props) => {
                                 ${link.id === 3 && 'animate-bounceInFromLeft3'}
                             `}
                         >
-                            <span className='text-green align-baseline'>0{index + 1}.&nbsp;</span>
-                            <span className='text-xl hover:text-green transition-colors ease-in-out duration-500'>
+                            <span className='text-green text-sm align-baseline'>
+                                0{index + 1}.&nbsp;
+                            </span>
+                            <span className='text-lg hover:text-green transition-colors ease-in-out duration-500'>
                                 {link.name}
                             </span>
                         </a>
                     ))}
+                    <Link
+                        id='downloadCV'
+                        rel='noopener noreferrer'
+                        target='_blank'
+                        href='/KieranDanseyCV.pdf'
+                        onClick={() => setIsOpen(false)}
+                        className={`animate-bounceInFromLeft4 navLink px-6 py-4 ${bigButton} text-lg`}
+                    >
+                        Download CV
+                    </Link>
                 </nav>
             )}
         </nav>

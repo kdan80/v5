@@ -124,6 +124,8 @@ module.exports = {
                     'bounceInFromLeft 550ms cubic-bezier(0.3, 0.16, 0.54, 1.22) forwards',
                 bounceInFromLeft3:
                     'bounceInFromLeft 700ms cubic-bezier(0.3, 0.16, 0.54, 1.22) forwards',
+                bounceInFromLeft4:
+                    'bounceInFromLeft 850ms cubic-bezier(0.3, 0.16, 0.54, 1.22) forwards',
                 slideInFromLeft: 'slideInFromLeft 300ms ease-in-out',
                 slideDown: 'slideDown 250ms ease-in-out',
             },

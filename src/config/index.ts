@@ -40,7 +40,7 @@ const details = {
 } as const
 
 const siteConfig = {
-    themeColor: '#20212C',
+    themeColor: '#151718',
     navLinks: [
         {
             id: 1,

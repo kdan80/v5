@@ -23,7 +23,7 @@ const Loader = ({ finishLoading }: Props) => {
         <div className='fixed top-0 left-0 h-screen w-screen flex justify-center items-center'>
             <span
                 ref={ref}
-                className='opacity-0 text-medium-700 absolute bottom-[3rem] text-sm md:text-base md:right-[3rem] 
+                className='opacity-0 text-medium-700 fixed bottom-[3rem] text-sm md:text-base md:right-[3rem] 
                 after:content-["Tap_screen_to_skip_intro"]
                 md:after:content-["Press_any_key_to_skip_intro"]
                 '

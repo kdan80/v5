@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { DropdownNav } from '@/components'
 import { bigButton, hamburgerBar } from '@/styles'
 import { siteConfig } from '@/config'
 import useScrollDirection from '../useScrollDirection'
@@ -26,9 +27,7 @@ const Header = ({ scrolledToTop, isOpen, setIsOpen }: Props) => {
             <a
                 id='homeLink'
                 href='#landing'
-                className={`opacity-0 text-white text-sm hover:text-green font-sans ${
-                    isOpen && 'invisible'
-                }`}
+                className={`opacity-0 text-white text-sm hover:text-green font-sans`}
             >
                 <span className='text-green '>&lt;/&gt;&nbsp;&nbsp;</span>
                 <span className='transition-colors ease-in-out duration-500'>kieran dansey</span>
@@ -58,10 +57,15 @@ const Header = ({ scrolledToTop, isOpen, setIsOpen }: Props) => {
                 </Link>
             </nav>
 
+            <DropdownNav
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+            />
+
             <button
                 id='hamburger'
                 type='button'
-                className='md:hidden opacity-0 w-[28px] h-[28px]'
+                className='z-50 md:hidden opacity-0 w-[28px] h-[28px]'
                 onClick={() => setIsOpen(prev => !prev)}
             >
                 <div className='relative w-full h-full'>
