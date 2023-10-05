@@ -128,9 +128,21 @@ module.exports = {
                 slideDown: 'slideDown 250ms ease-in-out',
             },
             screens: {
-                xs: '540px',
+                xs: { min: '540px', max: '639px' },
+                sm: { min: '640px', max: '767px' },
+                md: { min: '768px', max: '1023px' },
+                lg: { min: '1024px', max: '1279px' },
+                xl: { min: '1280px', max: '1535px' },
+                '2xl': { min: '1536px' },
+            },
+            debugScreens: {
+                style: {
+                    backgroundColor: '#000000',
+                    color: 'red',
+                    // ...
+                },
             },
         },
     },
-    plugins: [],
+    plugins: [require('tailwindcss-debug-screens')],
 }

@@ -30,7 +30,13 @@ interface Props {
 const RootLayout = ({ children }: Props) => {
     return (
         <html lang='en'>
-            <body className={`${inter.className}`}>{children}</body>
+            <body
+                className={`${inter.className} ${
+                    process.env.ENV === 'development' && 'debug-screens'
+                }`}
+            >
+                {children}
+            </body>
         </html>
     )
 }
