@@ -37,7 +37,7 @@ const Featured = ({ projects }: Props) => {
                                 >
                                     <div
                                         // prettier-ignore
-                                        className={`relative h-full md:border-2 md:border-medium-800 row-span-full col-span-full rounded md:hover:border-green transition ease-in-out duration-500 overflow-hidden 
+                                        className={`relative md:border-2 md:border-medium-800 row-span-full col-span-full rounded md:hover:border-green transition ease-in-out duration-500 overflow-hidden 
                                         ${reverseLayout ? 'md:col-start-5 lg:col-start-6' : 'md:col-end-9 lg:col-end-8'}`}
                                     >
                                         <Link
@@ -53,7 +53,7 @@ const Featured = ({ projects }: Props) => {
                                                 alt={title}
                                                 placeholder='blur'
                                                 blurDataURL={blurData}
-                                                className='object-cover blur-sm md:blur-none grayscale-50 hover:grayscale-0 lg:brightness-75 hover:brightness-100 transition ease-in-out duration-500'
+                                                className='blur-sm md:blur-none grayscale-50 hover:grayscale-0 lg:brightness-75 hover:brightness-100 transition ease-in-out duration-500'
                                             />
                                             <div
                                                 className={`absolute top-0 left-0 block lg:hidden w-full h-full bg-dark-400 opacity-[92%] md:bg-black md:opacity-50 md:hover:opacity-30 transition duration-500 ease-in-out`}
