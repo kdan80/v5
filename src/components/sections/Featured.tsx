@@ -36,9 +36,8 @@ const Featured = ({ projects }: Props) => {
                                 // A height of 100% should respect the parent elements height, and the parent element should respect the flex rules
                                 // However overflowContainer breaches its parent height and I cannot not fix this. Possible safari bug??
                                 // Wrapping the whole thing in a div for god knows what reason results in overflowContainer taking the correct height
-                                <div>
+                                <div key={index}>
                                     <li
-                                        key={index}
                                         className={`observer relative grid grid-cols-12 md:gap-[0.625rem] items-center`}
                                     >
                                         <div
