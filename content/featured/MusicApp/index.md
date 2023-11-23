@@ -12,5 +12,5 @@ tech:
     - Cloudfront
 ---
 
-A fullstack music streaming app built with Next.js. Media is hosted in an S3 Bucket and streamed via
-Cloudfront.
+A fullstack music streaming app built with Next.js and hosted on Railway.app. Media is hosted in an
+S3 Bucket and streamed via Cloudfront with presigned urls.
