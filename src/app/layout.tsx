@@ -20,6 +20,9 @@ export const metadata: Metadata = {
         locale: openGraph.locale,
         type: openGraph.type,
     },
+    verification: {
+        google: 'Imm8ge6Cd1Bc7A8yFSlcqy4yM-GTRj15qdkC01OMfaE',
+    },
 }
 
 interface Props {
