@@ -9,7 +9,7 @@ const siteMetadata = {
     ] as const,
     description: 'Kieran Dansey freelance web developer',
     siteUrl: 'https://kierandansey.co.uk',
-    metadataBaseUrl: 'http://192.168.1.21:3080',
+    metadataBaseUrl: 'https://kierandansey.co.uk',
     image: '/images/og.webp',
 } as const
 
