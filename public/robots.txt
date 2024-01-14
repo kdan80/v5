@@ -3,3 +3,4 @@ Allow: /$
 Disallow: /_next/
 Disallow: /api/
 Disallow: /public/
+Disallow: /KieranDanseyCV.pdf/
