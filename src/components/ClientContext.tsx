@@ -71,22 +71,26 @@ const ClientContext = ({ children }: Props) => {
 
     return (
         <main className='text-light-200 flex flex-col items-center min-h-screen max-w-screen overflow-x-hidden'>
-            {loading && <Loader finishLoading={finishLoading} />}
+            {loading ? (
+                <Loader finishLoading={finishLoading} />
+            ) : (
+                <>
+                    <Header
+                        scrolledToTop={scrolledToTop}
+                        isOpen={isOpen}
+                        setIsOpen={setIsOpen}
+                    />
 
-            <Header
-                scrolledToTop={scrolledToTop}
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
-            />
-
-            <Landing setScrolledToTop={setScrolledToTop} />
-            {children}
-            <footer className='flex justify-center items-center h-[6rem] -mt-[6rem]'>
-                <span className='text-medium-200 text-sm'>
-                    Designed &amp; Built by Kieran Dansey
-                </span>
-            </footer>
-            <SocialsList scrolledToTop={scrolledToTop} />
+                    <Landing setScrolledToTop={setScrolledToTop} />
+                    {children}
+                    <footer className='flex justify-center items-center h-[6rem] -mt-[6rem]'>
+                        <span className='text-medium-200 text-sm'>
+                            Designed &amp; Built by Kieran Dansey
+                        </span>
+                    </footer>
+                    <SocialsList scrolledToTop={scrolledToTop} />
+                </>
+            )}
         </main>
     )
 }
