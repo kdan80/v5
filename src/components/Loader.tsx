@@ -7,7 +7,13 @@ interface Props {
 
 const Loader = ({ finishLoading }: Props) => {
     const ref = React.useRef<HTMLSpanElement | null>(null)
+
     React.useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            finishLoading()
+            return
+        }
+
         if (!ref.current) return
         const skipText = ref.current
 
@@ -17,7 +23,7 @@ const Loader = ({ finishLoading }: Props) => {
             easing: 'ease-in-out',
             fill: 'forwards',
         })
-    })
+    }, [finishLoading])
 
     return (
         <div className='fixed top-0 left-0 h-screen w-screen flex justify-center items-center'>

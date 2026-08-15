@@ -36,14 +36,15 @@ const Featured = ({ projects }: Props) => {
                                 // A height of 100% should respect the parent elements height, and the parent element should respect the flex rules
                                 // However overflowContainer breaches its parent height and I cannot not fix this. Possible safari bug??
                                 // Wrapping the whole thing in a div for god knows what reason results in overflowContainer taking the correct height
-                                <div key={index}>
-                                    <li
-                                        className={`observer relative grid grid-cols-12 md:gap-[0.625rem] items-center`}
-                                    >
+                                <li
+                                    key={index}
+                                    className='observer list-none'
+                                >
+                                    <div className='relative grid grid-cols-12 md:gap-[0.625rem] items-center'>
                                         <div
                                             id='overflowContainer'
                                             // prettier-ignore
-                                            className={`relative  md:border-2 md:border-medium-800 w-full h-full row-span-full col-span-full rounded md:hover:border-green transition ease-in-out duration-500 overflow-hidden 
+                                            className={`relative  md:border-2 md:border-medium-800 w-full h-full row-span-full col-span-full rounded-sm md:hover:border-green transition ease-in-out duration-500 overflow-hidden 
                                         ${reverseLayout ? 'md:col-start-5 lg:col-start-6' : 'md:col-end-9 lg:col-end-8'}`}
                                         >
                                             <Link
@@ -59,7 +60,7 @@ const Featured = ({ projects }: Props) => {
                                                     alt={title}
                                                     placeholder='blur'
                                                     blurDataURL={blurData}
-                                                    className='w-full h-full blur-sm md:blur-none grayscale-50 hover:grayscale-0 lg:brightness-75 hover:brightness-100 transition ease-in-out duration-500'
+                                                    className='w-full h-full blur-xs md:blur-none grayscale-50 hover:grayscale-0 lg:brightness-75 hover:brightness-100 transition ease-in-out duration-500'
                                                 />
                                                 <div
                                                     className={`absolute top-0 left-0 lg:hidden w-full h-full bg-dark-400 opacity-[92%] md:bg-black md:opacity-50 md:hover:opacity-30 transition duration-500 ease-in-out`}
@@ -86,10 +87,11 @@ const Featured = ({ projects }: Props) => {
                                             </h2>
                                             <p
                                                 // prettier-ignore
-                                                className={`pointer-events-auto text-sm md:bg-dark-600 text-light-300 md:text-light-200 text-justify md:p-5 lg:p-6 my-6 sm:my-8 md:my-4 lg:my-6  rounded drop-shadow-[0_4px_16px_rgba(0,0,0,0.45)]
+                                                className={`pointer-events-auto whitespace-pre-line text-sm md:bg-dark-600 text-light-300 md:text-light-200 text-justify md:p-5 lg:p-6 my-6 sm:my-8 md:my-4 lg:my-6 rounded-sm drop-shadow-[0_4px_16px_rgba(0,0,0,0.45)]
                                             ${reverseLayout ? ' ' : ''}`}
-                                                dangerouslySetInnerHTML={{ __html: content }}
-                                            />
+                                            >
+                                                {content.trim()}
+                                            </p>
                                             <ul
                                                 className={`flex flex-wrap text-sm text-light-300 md:text-light-200 gap-x-4 gap-y-2 font-mono overflow-hidden ${
                                                     reverseLayout
@@ -107,6 +109,7 @@ const Featured = ({ projects }: Props) => {
                                             >
                                                 <Link
                                                     href={github}
+                                                    aria-label={`View ${title} source code on GitHub`}
                                                     rel='noreferrer'
                                                     target='_blank'
                                                 >
@@ -117,6 +120,7 @@ const Featured = ({ projects }: Props) => {
                                                 </Link>
                                                 <Link
                                                     href={external}
+                                                    aria-label={`Visit ${title}`}
                                                     rel='noreferrer'
                                                     target='_blank'
                                                 >
@@ -127,8 +131,8 @@ const Featured = ({ projects }: Props) => {
                                                 </Link>
                                             </div>
                                         </div>
-                                    </li>
-                                </div>
+                                    </div>
+                                </li>
                             )
                         })}
                 </ul>

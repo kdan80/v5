@@ -26,14 +26,17 @@ const details = {
     socialLinks: [
         {
             url: 'https://github.com/kdan80',
+            label: 'GitHub',
             icon: Github,
         },
         {
             url: 'https://linkedin.com/in/kdansey80',
+            label: 'LinkedIn',
             icon: LinkedIn,
         },
         {
             url: 'https://codepen.io/kdan80',
+            label: 'CodePen',
             icon: Codepen,
         },
     ],

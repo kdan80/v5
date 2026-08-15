@@ -1,6 +1,109 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@custom-variant hover (&:hover);
+
+@theme {
+    --color-green: #13d5bb;
+    --color-heroHover: #11aa951a;
+    --color-darkGreen: #0d9086;
+    --color-header: rgba(28, 29, 34, 0.95);
+
+    --color-light-50: #fafbff;
+    --color-light-100: #f0f2f6;
+    --color-light-200: #eaebef;
+    --color-light-300: #e0e2e4;
+    --color-light-400: #dadbdf;
+    --color-light-500: #d0d2d4;
+    --color-light-600: #cacbcf;
+    --color-light-700: #c0c2c4;
+    --color-light-800: #babbbf;
+    --color-light-900: #b0b2b4;
+
+    --color-medium-50: #aaabad;
+    --color-medium-100: #a0a2a4;
+    --color-medium-200: #9a9b9d;
+    --color-medium-300: #909294;
+    --color-medium-400: #8a8b8d;
+    --color-medium-500: #808284;
+    --color-medium-600: #7a7b7d;
+    --color-medium-700: #707274;
+    --color-medium-800: #6a6b6d;
+    --color-medium-900: #606264;
+
+    --color-dark-50: #5a5b5d;
+    --color-dark-100: #505254;
+    --color-dark-200: #4a4b4d;
+    --color-dark-300: #404244;
+    --color-dark-400: #3a3b3d;
+    --color-dark-500: #303234;
+    --color-dark-600: #2a2b2d;
+    --color-dark-700: #202224;
+    --color-dark-800: #1a1b1d;
+    --color-dark-900: #101214;
+
+    --font-sans: Poppins, Roboto, Arial, sans, sans-serif, ui-sans-serif, system-ui,
+        sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+    --font-mono: 'SF Mono', 'Roboto Mono', Hack, mono, monospace, ui-monospace,
+        SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+        monospace;
+
+    --text-landingH1: clamp(0.875rem, 5vw, 1.125rem);
+    --text-landingH2: clamp(2.5rem, 8vw, 4rem);
+
+    --animate-bounceInFromLeft1: bounceInFromLeft 400ms cubic-bezier(0.3, 0.16, 0.54, 1.22)
+        forwards;
+    --animate-bounceInFromLeft2: bounceInFromLeft 550ms cubic-bezier(0.3, 0.16, 0.54, 1.22)
+        forwards;
+    --animate-bounceInFromLeft3: bounceInFromLeft 700ms cubic-bezier(0.3, 0.16, 0.54, 1.22)
+        forwards;
+    --animate-bounceInFromLeft4: bounceInFromLeft 850ms cubic-bezier(0.3, 0.16, 0.54, 1.22)
+        forwards;
+    --animate-slideInFromLeft: slideInFromLeft 300ms ease-in-out;
+    --animate-slideDown: slideDown 250ms ease-in-out;
+
+    @keyframes bounceInFromLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+
+        60% {
+            opacity: 1;
+            transform: translateX(3px);
+        }
+
+        80% {
+            transform: translateX(-1px);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInFromLeft {
+        0% {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideDown {
+        0% {
+            transform: translateY(-100%);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+}
 
 /* Tail wind drop-shadow does not work in Header.tsx use this instead */
 .shadow-x {
@@ -16,6 +119,77 @@
 .show {
     opacity: 1;
     transform: translateY(0);
+}
+
+.debug-screens::before {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    padding: 0.25rem 0.5rem;
+    background-color: #000000;
+    color: red;
+    font-size: 0.75rem;
+    line-height: 1;
+    content: 'base';
+    pointer-events: none;
+}
+
+@media (width >= 40rem) {
+    .debug-screens::before {
+        content: 'sm';
+    }
+}
+
+@media (width >= 48rem) {
+    .debug-screens::before {
+        content: 'md';
+    }
+}
+
+@media (width >= 64rem) {
+    .debug-screens::before {
+        content: 'lg';
+    }
+}
+
+@media (width >= 80rem) {
+    .debug-screens::before {
+        content: 'xl';
+    }
+}
+
+@media (width >= 96rem) {
+    .debug-screens::before {
+        content: '2xl';
+    }
+}
+
+@layer base {
+    button:not(:disabled),
+    [role='button']:not(:disabled) {
+        cursor: pointer;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .observer,
+    .show {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 html {
