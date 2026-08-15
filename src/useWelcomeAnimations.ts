@@ -40,16 +40,18 @@ const useWelcomeAnimations = (loading: boolean) => {
         }
 
         const landingAnimationsDuration =
-            (landingOptions.duration as number) + ((landingElements.length as number) - 1) * 100
+            (landingOptions.duration as number) + (landingElements.length - 1) * 100
 
-        const navLinksAnimationDuration = navLinkOptions.duration + (navLinks.length - 1) * 100
+        const landingDelay = landingOptions.delay as number
+        const navLinkDelay = navLinkOptions.delay as number
+        const socialLinkDelay = socialLinkOptions.delay as number
+        const navLinksAnimationDuration = (navLinkOptions.duration as number) + (navLinks.length - 1) * 100
 
         const landingAnimations = () => {
             landingElements.forEach((element, index) => {
-                // @ts-ignore
                 element.animate(landingKeyFrames, {
                     ...landingOptions,
-                    delay: index * landingOptions.delay,
+                    delay: index * landingDelay,
                 })
             })
         }
@@ -63,31 +65,28 @@ const useWelcomeAnimations = (loading: boolean) => {
             landingAnimations()
 
             navLinks.forEach((navLink, index) => {
-                // @ts-ignore
                 navLink.animate(navLinkKeyFrames, {
                     ...navLinkOptions,
-                    delay: landingAnimationsDuration + index * navLinkOptions.delay,
+                    delay: landingAnimationsDuration + index * navLinkDelay,
                 })
             })
 
-            // @ts-ignore
             homeLink.animate(homeLinkKeyFrames, {
                 ...homeLinkOptions,
                 delay:
-                    landingOptions.delay +
+                    landingDelay +
                     landingAnimationsDuration +
                     navLinksAnimationDuration,
             })
 
             socialLinks.forEach((link, index) => {
-                // @ts-ignore
                 link.animate(socialLinkKeyFrames, {
                     ...socialLinkOptions,
                     delay:
-                        landingOptions.delay +
+                        landingDelay +
                         landingAnimationsDuration +
                         navLinksAnimationDuration +
-                        index * socialLinkOptions.delay,
+                        index * socialLinkDelay,
                 })
             })
             return
@@ -101,23 +100,20 @@ const useWelcomeAnimations = (loading: boolean) => {
 
         landingAnimations()
 
-        // @ts-ignore
         homeLink.animate(homeLinkKeyFrames, {
             ...homeLinkOptions,
             delay: landingAnimationsDuration,
         })
 
-        // @ts-ignore
-        hamburger.animate(homeLinkKeyFrames, {
+        hamburger?.animate(homeLinkKeyFrames, {
             ...homeLinkOptions,
             delay: landingAnimationsDuration,
         })
 
         socialLinks.forEach((link, index) => {
-            // @ts-ignore
             link.animate(socialLinkKeyFrames, {
                 ...socialLinkOptions,
-                delay: landingAnimationsDuration + 300 + index * socialLinkOptions.delay,
+                delay: landingAnimationsDuration + 300 + index * socialLinkDelay,
             })
         })
     }, [loading])

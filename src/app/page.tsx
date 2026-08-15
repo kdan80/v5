@@ -1,17 +1,21 @@
 import React from 'react'
-import { ClientContext, Header } from '@/components'
+import { ClientContext } from '@/components'
 import { About, Featured, Contact } from '@/sections'
 import fs from 'fs'
+import path from 'path'
 import matter from 'gray-matter'
 import { Project } from '../types'
 
 const getProjects = async () => {
-    const files = fs.readdirSync('content/featured')
+    const featuredContentDirectory = path.join(process.cwd(), 'content', 'featured')
+    const files = fs.readdirSync(featuredContentDirectory)
 
     const projects = files.map(file => {
-        const readFile = fs.readFileSync(`content/featured/${file}/index.md`, 'utf-8')
+        const projectFilePath = path.join(featuredContentDirectory, file, 'index.md')
+        const readFile = fs.readFileSync(projectFilePath, 'utf-8')
         const { data: frontmatter, content } = matter(readFile)
         const { date } = frontmatter
+
         return {
             frontmatter,
             content,
@@ -19,7 +23,7 @@ const getProjects = async () => {
         }
     })
 
-    projects.sort((a: any, b: any) => a.date - b.date)
+    projects.sort((a, b) => a.date - b.date)
 
     return projects as Project[]
 }

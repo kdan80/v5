@@ -1,5 +1,5 @@
 import React from 'react'
-// @ts-ignore
+// @ts-expect-error animejs does not expose types for this deep import path
 import anime from 'animejs/lib/anime.es.js'
 
 // interface Props {

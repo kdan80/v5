@@ -1,9 +1,9 @@
 const easing = 'cubic-bezier(0.42, 0, 0.58, 1)'
 const duration = 250
 const delay = 100
-const fill = 'forwards'
+const fill: FillMode = 'forwards'
 
-const navLinkKeyFrames = [
+const navLinkKeyFrames: Keyframe[] = [
     {
         transform: 'translateY(-100%)',
         opacity: 0,
@@ -14,14 +14,14 @@ const navLinkKeyFrames = [
     },
 ]
 
-const navLinkOptions = {
-    duration: duration,
-    fill: fill,
-    easing: easing,
-    delay: delay,
+const navLinkOptions: KeyframeAnimationOptions = {
+    duration,
+    fill,
+    easing,
+    delay,
 }
 
-const homeLinkKeyFrames = [
+const homeLinkKeyFrames: Keyframe[] = [
     {
         opacity: 0,
     },
@@ -30,14 +30,14 @@ const homeLinkKeyFrames = [
     },
 ]
 
-const homeLinkOptions = {
-    duration: duration,
-    fill: fill,
+const homeLinkOptions: KeyframeAnimationOptions = {
+    duration,
+    fill,
     easing: 'ease-in-out',
-    delay: delay,
+    delay,
 }
 
-const landingKeyFrames = [
+const landingKeyFrames: Keyframe[] = [
     {
         transform: 'translateY(20px)',
         opacity: 0,
@@ -48,7 +48,7 @@ const landingKeyFrames = [
     },
 ]
 
-const socialLinkKeyFrames = [
+const socialLinkKeyFrames: Keyframe[] = [
     {
         opacity: 0,
     },
@@ -57,15 +57,15 @@ const socialLinkKeyFrames = [
     },
 ]
 
-const socialLinkOptions = {
+const socialLinkOptions: KeyframeAnimationOptions = {
     ...navLinkOptions,
 }
 
-const landingOptions = {
-    duration: duration,
-    fill: fill,
-    easing: easing,
-    delay: delay,
+const landingOptions: KeyframeAnimationOptions = {
+    duration,
+    fill,
+    easing,
+    delay,
 }
 
 export {
