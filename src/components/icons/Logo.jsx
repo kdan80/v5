@@ -146,7 +146,7 @@ const Logo = ({ finishLoading }) => {
                 ...nameAppearsStroke,
                 begin: () => {
                     anime({
-                        targets: '.surname.fill',
+                        targets: 'surnname.fill',
                         ...nameAppearsFill,
                     })
                 },
