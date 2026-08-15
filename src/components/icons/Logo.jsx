@@ -7,62 +7,64 @@ import anime from 'animejs/lib/anime.es.js'
 // }
 
 const Logo = ({ finishLoading }) => {
-    // These values were obtained from measurements made in inkscape
-    // They can be progmatically calculated using getBBox().x
-    const rightBracketOffset = 146
-    const leftBracketOffset = -142
+    React.useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
-    const bracketsAppear = {
-        delay: 250,
-        opacity: 1,
-        duration: 500,
-        easing: 'easeInExpo',
-    }
+        // These values were obtained from measurements made in inkscape
+        // They can be progmatically calculated using getBBox().x
+        const rightBracketOffset = 146
+        const leftBracketOffset = -142
 
-    const bracketsOpen = {
-        delay: 400,
-        duration: 800,
-        easing: 'easeOutExpo',
-    }
+        const bracketsAppear = {
+            delay: 250,
+            opacity: 1,
+            duration: 500,
+            easing: 'easeInExpo',
+        }
 
-    const nameAppearsStroke = {
-        strokeDashoffset: [anime.setDashoffset, 0],
-        easing: 'easeInOutSine',
-        duration: 1200,
-    }
+        const bracketsOpen = {
+            delay: 400,
+            duration: 800,
+            easing: 'easeOutExpo',
+        }
 
-    const nameAppearsFill = {
-        targets: '.fill',
-        fillOpacity: 1,
-        delay: 1000,
-        duration: 1000,
-    }
+        const nameAppearsStroke = {
+            strokeDashoffset: [anime.setDashoffset, 0],
+            easing: 'easeInOutSine',
+            duration: 1200,
+        }
 
-    const nameStrokeDisappears = {
-        strokeOpacity: 0,
-        duration: nameAppearsFill.duration,
-    }
+        const nameAppearsFill = {
+            targets: '.fill',
+            fillOpacity: 1,
+            delay: 1000,
+            duration: 1000,
+        }
 
-    const nameFillDisappears = {
-        duration: 100,
-        opacity: 0,
-    }
+        const nameStrokeDisappears = {
+            strokeOpacity: 0,
+            duration: nameAppearsFill.duration,
+        }
 
-    const bracketsCollapse = {
-        delay: 250,
-        duration: 1200,
-        translateX: 0,
-        easing: 'easeOutElastic(1, 1)',
-    }
+        const nameFillDisappears = {
+            duration: 100,
+            opacity: 0,
+        }
 
-    const slashAppears = {
-        targets: '.slash',
-        delay: 1000,
-        duration: 1000,
-        opacity: 1,
-    }
+        const bracketsCollapse = {
+            delay: 250,
+            duration: 1200,
+            translateX: 0,
+            easing: 'easeOutElastic(1, 1)',
+        }
 
-    const animateLoader = () => {
+        const slashAppears = {
+            targets: '.slash',
+            delay: 1000,
+            duration: 1000,
+            opacity: 1,
+        }
+
         const leftBracketTimeline = anime.timeline({
             targets: '.left',
             begin: () => {
@@ -164,11 +166,7 @@ const Logo = ({ finishLoading }) => {
                     })
                 },
             })
-    }
-
-    React.useEffect(() => {
-        animateLoader()
-    }, [])
+    }, [finishLoading])
 
     return (
         <svg

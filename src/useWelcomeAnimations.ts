@@ -11,10 +11,10 @@ import {
 } from './animations'
 
 const useWelcomeAnimations = (loading: boolean) => {
-    let welcomeAnimations: () => void
-
-    React.useEffect(() => {
+    return React.useCallback(() => {
         if (loading) return
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
         const homeLink = document.querySelector('#homeLink')
         if (!homeLink) return
@@ -25,6 +25,19 @@ const useWelcomeAnimations = (loading: boolean) => {
         const landingElements: Array<HTMLElement> = Array.from(
             document.querySelectorAll('.landing')
         )
+
+        const revealElement = (element: Element | null) => {
+            if (element instanceof HTMLElement || element instanceof SVGElement) {
+                element.style.opacity = '100%'
+            }
+        }
+
+        if (prefersReducedMotion) {
+            ;[homeLink, hamburger, downloadCV, ...navLinks, ...socialLinks, ...landingElements].forEach(
+                revealElement
+            )
+            return
+        }
 
         const landingAnimationsDuration =
             (landingOptions.duration as number) + ((landingElements.length as number) - 1) * 100
@@ -43,76 +56,71 @@ const useWelcomeAnimations = (loading: boolean) => {
 
         // Desktop animations
         if (window.innerWidth >= 768) {
-            return (welcomeAnimations = () => {
-                // prettier-ignore
-                // We don't need to animate the hamburger but we still need to make it visible
-                (hamburger as HTMLElement).style.opacity = '100%'
-
-                landingAnimations()
-
-                navLinks.forEach((navLink, index) => {
-                    // @ts-ignore
-                    navLink.animate(navLinkKeyFrames, {
-                        ...navLinkOptions,
-                        delay: landingAnimationsDuration + index * navLinkOptions.delay,
-                    })
-                })
-
-                // @ts-ignore
-                homeLink.animate(homeLinkKeyFrames, {
-                    ...homeLinkOptions,
-                    delay:
-                        landingOptions.delay +
-                        landingAnimationsDuration +
-                        navLinksAnimationDuration,
-                })
-
-                socialLinks.forEach((link, index) => {
-                    // @ts-ignore
-                    link.animate(socialLinkKeyFrames, {
-                        ...socialLinkOptions,
-                        delay:
-                            landingOptions.delay +
-                            landingAnimationsDuration +
-                            navLinksAnimationDuration +
-                            index * socialLinkOptions.delay,
-                    })
-                })
-            })
-        }
-
-        // Mobile animations
-        welcomeAnimations = () => {
             // prettier-ignore
-            // As with desktop animations we still need to make certian elements visible
-            (downloadCV as HTMLElement).style.opacity = '100%'
-            navLinks.forEach(navLink => ((navLink as HTMLElement).style.opacity = '100%'))
+            // We don't need to animate the hamburger but we still need to make it visible
+            ;(hamburger as HTMLElement).style.opacity = '100%'
 
             landingAnimations()
+
+            navLinks.forEach((navLink, index) => {
+                // @ts-ignore
+                navLink.animate(navLinkKeyFrames, {
+                    ...navLinkOptions,
+                    delay: landingAnimationsDuration + index * navLinkOptions.delay,
+                })
+            })
 
             // @ts-ignore
             homeLink.animate(homeLinkKeyFrames, {
                 ...homeLinkOptions,
-                delay: landingAnimationsDuration,
-            })
-
-            // @ts-ignore
-            hamburger.animate(homeLinkKeyFrames, {
-                ...homeLinkOptions,
-                delay: landingAnimationsDuration,
+                delay:
+                    landingOptions.delay +
+                    landingAnimationsDuration +
+                    navLinksAnimationDuration,
             })
 
             socialLinks.forEach((link, index) => {
                 // @ts-ignore
                 link.animate(socialLinkKeyFrames, {
                     ...socialLinkOptions,
-                    delay: landingAnimationsDuration + 300 + index * socialLinkOptions.delay,
+                    delay:
+                        landingOptions.delay +
+                        landingAnimationsDuration +
+                        navLinksAnimationDuration +
+                        index * socialLinkOptions.delay,
                 })
             })
+            return
         }
-    }, [loading])
 
-    return () => welcomeAnimations && welcomeAnimations()
+        // Mobile animations
+        // prettier-ignore
+        // As with desktop animations we still need to make certian elements visible
+        ;(downloadCV as HTMLElement).style.opacity = '100%'
+        navLinks.forEach(navLink => ((navLink as HTMLElement).style.opacity = '100%'))
+
+        landingAnimations()
+
+        // @ts-ignore
+        homeLink.animate(homeLinkKeyFrames, {
+            ...homeLinkOptions,
+            delay: landingAnimationsDuration,
+        })
+
+        // @ts-ignore
+        hamburger.animate(homeLinkKeyFrames, {
+            ...homeLinkOptions,
+            delay: landingAnimationsDuration,
+        })
+
+        socialLinks.forEach((link, index) => {
+            // @ts-ignore
+            link.animate(socialLinkKeyFrames, {
+                ...socialLinkOptions,
+                delay: landingAnimationsDuration + 300 + index * socialLinkOptions.delay,
+            })
+        })
+    }, [loading])
 }
 
 export default useWelcomeAnimations

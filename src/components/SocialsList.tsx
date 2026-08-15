@@ -16,10 +16,11 @@ const SocialsList = ({ scrolledToTop }: Props) => {
             }`}
         >
             <nav className='flex justify-start items-center gap-14 md:gap-10'>
-                {details.socialLinks.map(({ url, icon: Icon }, index) => (
+                {details.socialLinks.map(({ url, label, icon: Icon }, index) => (
                     <Link
                         key={index}
                         className='socialLink opacity-0'
+                        aria-label={label}
                         target='_blank'
                         rel='noreferrer'
                         href={url}

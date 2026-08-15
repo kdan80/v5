@@ -10,7 +10,7 @@ const siteMetadata = {
     description: 'Kieran Dansey freelance web developer',
     siteUrl: 'https://kierandansey.co.uk',
     metadataBaseUrl: 'https://kierandansey.co.uk',
-    image: '/images/og.webp',
+    image: '/images/og.png',
 } as const
 
 export default siteMetadata
