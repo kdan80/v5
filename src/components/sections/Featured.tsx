@@ -38,9 +38,9 @@ const Featured = ({ projects }: Props) => {
                                 // Wrapping the whole thing in a div for god knows what reason results in overflowContainer taking the correct height
                                 <li
                                     key={index}
-                                    className={`observer relative grid grid-cols-12 md:gap-[0.625rem] items-center`}
+                                    className='observer list-none'
                                 >
-                                    <div>
+                                    <div className='relative grid grid-cols-12 md:gap-[0.625rem] items-center'>
                                         <div
                                             id='overflowContainer'
                                             // prettier-ignore
