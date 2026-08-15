@@ -1,7 +1,8 @@
 import './globals.css'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import { siteMetadata, openGraph, details, siteConfig } from '@/config'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -10,7 +11,6 @@ export const metadata: Metadata = {
     title: siteMetadata.title,
     description: siteMetadata.description,
     keywords: [...siteMetadata.keywords],
-    themeColor: siteConfig.themeColor,
     openGraph: {
         title: openGraph.title,
         description: openGraph.description,
@@ -25,9 +25,12 @@ export const metadata: Metadata = {
     },
 }
 
+export const viewport: Viewport = {
+    themeColor: siteConfig.themeColor,
+}
+
 interface Props {
-    children?: React.ReactNode
-    params: any
+    children: React.ReactNode
 }
 
 const RootLayout = ({ children }: Props) => {
@@ -35,7 +38,7 @@ const RootLayout = ({ children }: Props) => {
         <html lang='en'>
             <body
                 className={`${inter.className} selection:bg-darkGreen selection:text-white ${
-                    process.env.ENV === 'development' && 'debug-screens'
+                    process.env.NODE_ENV === 'development' ? 'debug-screens' : ''
                 }`}
             >
                 {children}

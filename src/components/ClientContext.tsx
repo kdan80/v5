@@ -21,9 +21,12 @@ const ClientContext = ({ children }: Props) => {
 
     // Disable page scroll when dropdown is open or loader is animating
     React.useEffect(() => {
-        isOpen || loading
-            ? document.body.classList.add('overflow-hidden')
-            : document.body.classList.remove('overflow-hidden')
+        if (isOpen || loading) {
+            document.body.classList.add('overflow-hidden')
+            return
+        }
+
+        document.body.classList.remove('overflow-hidden')
     }, [isOpen, loading])
 
     // Welcome animations for landing page etc

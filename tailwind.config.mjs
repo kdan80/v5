@@ -1,8 +1,7 @@
-/** @type {import('tailwindcss').Config} */
+import defaultTheme from 'tailwindcss/defaultTheme'
+import debugScreens from 'tailwindcss-debug-screens'
 
-const defaultTheme = require('tailwindcss/defaultTheme')
-
-module.exports = {
+const config = {
     content: [
         './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
         './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -60,22 +59,8 @@ module.exports = {
                 50: '0.5',
             },
             fontFamily: {
-                sans: [
-                    'Poppins',
-                    'Roboto',
-                    'Arial',
-                    'sans',
-                    'sans-serif',
-                    defaultTheme.fontFamily.sans,
-                ],
-                mono: [
-                    'SF Mono',
-                    'Roboto Mono',
-                    'Hack',
-                    'mono',
-                    'monospace',
-                    defaultTheme.fontFamily.mono,
-                ],
+                sans: ['Poppins', 'Roboto', 'Arial', 'sans', 'sans-serif', ...defaultTheme.fontFamily.sans],
+                mono: ['SF Mono', 'Roboto Mono', 'Hack', 'mono', 'monospace', ...defaultTheme.fontFamily.mono],
             },
             fontSize: {
                 landingH1: ['clamp(0.875rem, 5vw, 1.125rem)'],
@@ -88,11 +73,11 @@ module.exports = {
             keyframes: {
                 bounceInFromLeft: {
                     '0%': {
-                        opacity: 0,
+                        opacity: '0',
                         transform: 'translateX(-100%)',
                     },
                     '60%': {
-                        opacity: 1,
+                        opacity: '1',
                         transform: 'translateX(3px)',
                     },
                     '80%': { transform: 'translateX(-1px)' },
@@ -101,11 +86,11 @@ module.exports = {
                 slideInFromLeft: {
                     '0%': {
                         transform: 'translateX(-100%)',
-                        opacity: 0,
+                        opacity: '0',
                     },
                     '100%': {
                         transform: 'translateX(0)',
-                        opacity: 1,
+                        opacity: '1',
                     },
                 },
                 slideDown: {
@@ -133,10 +118,11 @@ module.exports = {
                 style: {
                     backgroundColor: '#000000',
                     color: 'red',
-                    // ...
                 },
             },
         },
     },
-    plugins: [require('tailwindcss-debug-screens')],
+    plugins: [debugScreens],
 }
+
+export default config
