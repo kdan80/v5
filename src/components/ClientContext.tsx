@@ -15,9 +15,9 @@ const ClientContext = ({ children }: Props) => {
     const [isOpen, setIsOpen] = React.useState(false)
     const welcomeAnimations = useWelcomeAnimations(loading)
 
-    const finishLoading = () => {
+    const finishLoading = React.useCallback(() => {
         setIsLoading(false)
-    }
+    }, [])
 
     // Disable page scroll when dropdown is open or loader is animating
     React.useEffect(() => {
@@ -32,6 +32,11 @@ const ClientContext = ({ children }: Props) => {
         welcomeAnimations()
 
         const entries = document.querySelectorAll('.observer')
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            entries.forEach(entry => entry.classList.add('show'))
+            return
+        }
 
         const observer = new IntersectionObserver(
             entries => {
@@ -49,7 +54,9 @@ const ClientContext = ({ children }: Props) => {
         )
 
         entries.forEach(entry => observer.observe(entry))
-    }, [loading])
+
+        return () => observer.disconnect()
+    }, [loading, welcomeAnimations])
 
     // Interrupt logic for loader animation
     React.useEffect(() => {
@@ -60,11 +67,11 @@ const ClientContext = ({ children }: Props) => {
             window.removeEventListener('keydown', finishLoading)
             window.removeEventListener('touchend', finishLoading)
         }
-    }, [loading])
+    }, [loading, finishLoading])
 
     return (
         <main className='text-light-200 flex flex-col items-center min-h-screen max-w-screen overflow-x-hidden'>
-            {loading && <Loader finishLoading={() => setIsLoading(false)} />}
+            {loading && <Loader finishLoading={finishLoading} />}
 
             <Header
                 scrolledToTop={scrolledToTop}

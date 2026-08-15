@@ -65,6 +65,7 @@ const Header = ({ scrolledToTop, isOpen, setIsOpen }: Props) => {
             <button
                 id='hamburger'
                 type='button'
+                aria-label={isOpen ? 'Close menu' : 'Open menu'}
                 className='z-50 md:hidden opacity-0 w-[28px] h-[28px]'
                 onClick={() => setIsOpen(prev => !prev)}
             >

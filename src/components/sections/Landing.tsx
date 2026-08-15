@@ -14,7 +14,7 @@ const Landing = ({ setScrolledToTop }: Props) => {
 
     React.useEffect(() => {
         setScrolledToTop(scrolledToTop)
-    }, [scrolledToTop])
+    }, [scrolledToTop, setScrolledToTop])
 
     return (
         <section

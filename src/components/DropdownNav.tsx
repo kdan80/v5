@@ -39,7 +39,7 @@ const DropdownNav = ({ isOpen, setIsOpen }: Props) => {
             }
         >
             {isOpen && transitionFinished && (
-                <nav className='text-light-300 md:text-light-200 font-mono flex flex-col gap-16'>
+                <div className='text-light-300 md:text-light-200 font-mono flex flex-col gap-16'>
                     {siteConfig.navLinks.map((link, index) => (
                         <a
                             key={link.id}
@@ -70,7 +70,7 @@ const DropdownNav = ({ isOpen, setIsOpen }: Props) => {
                     >
                         Download CV
                     </Link>
-                </nav>
+                </div>
             )}
         </nav>
     )
