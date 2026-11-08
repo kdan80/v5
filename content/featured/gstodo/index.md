@@ -4,7 +4,6 @@ title: 'gs.todo'
 cover: '/featured/gstodo.webp'
 blurData: '/featured/gstodo_blur.webp'
 github: 'https://github.com/kdan80/gs.todo'
-external: 'https://gstodo-production.up.railway.app/'
 tech:
     - Next.js
     - Typescript
