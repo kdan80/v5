@@ -4,7 +4,6 @@ title: 'Vidstream'
 cover: '/featured/vidstream.webp'
 blurData: '/featured/vidstream_blur.webp'
 github: 'https://github.com/kdan80/vidstream'
-external: 'https://github.com/kdan80/vidstream'
 tech:
     - React
     - Express
