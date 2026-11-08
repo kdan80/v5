@@ -5,7 +5,6 @@ export type Project = {
         cover: string
         blurData: string
         github: string
-        external: string
         tech: string[]
     }
     content: string

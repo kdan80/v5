@@ -4,7 +4,6 @@ title: 'MusicApp'
 cover: '/featured/musicapp.webp'
 blurData: '/featured/musicapp_blur.webp'
 github: 'https://github.com/kdan80/musicapp'
-external: 'https://musicapp-production-bd99.up.railway.app'
 tech:
     - Next.js
     - Fullstack

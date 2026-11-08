@@ -4,7 +4,6 @@ title: 'authy'
 cover: '/featured/authy.webp'
 blurData: '/featured/authy_blur.webp'
 github: 'https://github.com/kdan80/authy'
-external: 'https://kdan80.github.io/authy/index.html'
 tech:
     - HTML
     - Javascript

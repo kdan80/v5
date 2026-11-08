@@ -2,7 +2,7 @@ import React from 'react'
 import { section, sectionContent } from '@/styles'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Github, External } from '@/icons'
+import { Github } from '@/icons'
 import NumberedHeading from '../NumberedHeading'
 import { Project } from '../../types'
 
@@ -27,7 +27,7 @@ const Featured = ({ projects }: Props) => {
                     {projects &&
                         projects.map((project, index) => {
                             const { frontmatter, content } = project
-                            const { external, title, tech, github, cover, blurData } = frontmatter
+                            const { title, tech, github, cover, blurData } = frontmatter
                             const reverseLayout = (index + 1) % 2 === 0
                             return (
                                 // I have absolutely no idea why, but wrapping this <li> element in a div fixes a bug on safari
@@ -48,7 +48,7 @@ const Featured = ({ projects }: Props) => {
                                         ${reverseLayout ? 'md:col-start-5 lg:col-start-6' : 'md:col-end-9 lg:col-end-8'}`}
                                         >
                                             <Link
-                                                href={external}
+                                                href={github}
                                                 rel='noreferrer'
                                                 target='_blank'
                                                 className='relative block w-full h-full max-md:pointer-events-none'
@@ -83,7 +83,13 @@ const Featured = ({ projects }: Props) => {
                                                 // prettier-ignore
                                                 className={`pointer-events-auto w-fit text-2xl font-semibold mt-1 text-light-200 hover:text-green transition ease-in-out duration-500`}
                                             >
-                                                <Link href={external}>{title}</Link>
+                                                <Link
+                                                    href={github}
+                                                    rel='noreferrer'
+                                                    target='_blank'
+                                                >
+                                                    {title}
+                                                </Link>
                                             </h2>
                                             <p
                                                 // prettier-ignore
@@ -114,17 +120,6 @@ const Featured = ({ projects }: Props) => {
                                                     target='_blank'
                                                 >
                                                     <Github
-                                                        // prettier-ignore
-                                                        styles={'w-[18px] h-[18px] lg:w-[20px] lg:h-[20px]'}
-                                                    />
-                                                </Link>
-                                                <Link
-                                                    href={external}
-                                                    aria-label={`Visit ${title}`}
-                                                    rel='noreferrer'
-                                                    target='_blank'
-                                                >
-                                                    <External
                                                         // prettier-ignore
                                                         styles={'w-[18px] h-[18px] lg:w-[20px] lg:h-[20px]'}
                                                     />
